@@ -64,6 +64,7 @@ public class MainActivity extends FragmentActivity {
 
 	int[] selectRes = new int[]{R.drawable.icon_home_select,R.drawable.icon_persoal_center_select,R.drawable.icon_more_select};
 	int[] normalRes = new int[]{R.drawable.icon_home_normal,R.drawable.icon_personal_center_normal,R.drawable.icon_more_normal};
+
 	ImageView[] selectImgs;
 
 	private long mExitTime;
