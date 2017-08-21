@@ -177,7 +177,7 @@ public class AddContactsActivity extends BaseActivity implements ContactsUtils.I
 		String hyPhone = hyPhone1Et.getText().toString();
 
 
-		if(sibRelation.equals("请选择")){
+		if(sibRelation.isEmpty()){
 			showToast("请选择直系关系!");
 			return;
 		}
@@ -192,7 +192,7 @@ public class AddContactsActivity extends BaseActivity implements ContactsUtils.I
 			return;
 		}
 
-		if(lsRelation.equals("请选择")){
+		if(lsRelation.isEmpty()){
 			showToast("请选择老师关系!");
 			return;
 		}
@@ -207,7 +207,7 @@ public class AddContactsActivity extends BaseActivity implements ContactsUtils.I
 			return;
 		}
 
-		if(hyRelation.equals("请选择")){
+		if(hyRelation.isEmpty()){
 			showToast("请选择好友关系!");
 			return;
 		}

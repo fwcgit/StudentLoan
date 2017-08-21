@@ -85,7 +85,7 @@ public class HelpDetailActivity extends BaseActivity {
 	private String[] feiyongTitle = new String[]{"1.借款费用如何收取？","2.逾期费用如何收取？"};
 	private String[][]feiyong = new String[][]{
 			{"答：用户在应急卡借款.平台收取一定的服务费用.服务费用会在借款成功后收取.和每天0.05%利息.利息将在还款时收取"},
-			{"答：逾期还款.罚息利息将按每天0.06%收取.平台收取账户管理费每个账户每天1元.催收费用每笔借款每天16元"}};
+			{"答：逾期还款.罚息利息将按每天0.06%收取.平台收取账户管理费每个账户每天1元.催收费用每笔借款每天16元.滞纳金每笔20元"}};
 
 	private String[] qitaTitle = new String[]{"1.收不到验证码怎么办？","2.如何更改手机号？"};
 	private String[][] qita = new String[][]{
