@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="home_select">#ff26aa28</color>
+    <color name="home_normal">#ff666666</color>
+    <color name="bg">#ff26aa28</color>
+    <color name="window_bg">#f8f8f8</color>
+    <color name="font_color">#ff686868</color>
+    <color name="font_hint_color">#ffcccccc</color>
+    <color name="black_text">#000</color>
+    <color name="line_gray1">#f4f4f4</color>
+    <color name="bg_body">#f0f0f6</color>
+
+    <drawable name="red">#ffff0000</drawable>
+
+
+</resources>

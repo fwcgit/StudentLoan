@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_bg"
+    android:fitsSystemWindows="true" >
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout" />
+
+    <LinearLayout
+        android:id="@+id/showLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleLayout"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="@string/tips"
+            android:textColor="#9A9A9A"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/comm_margin"
+            android:layout_marginTop="12dp"
+            android:text="绑定我的支付宝账号"
+            android:textColor="@color/font_color"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/alipayEt"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="@dimen/comm_margin"
+            android:layout_marginRight="@dimen/comm_margin"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_rectf_stoke_cccc_bg"
+            android:hint="请输入支付宝账号"
+            android:textColorHint="@color/font_hint_color"
+            android:paddingLeft="@dimen/comm_margin"
+            android:textColor="@color/font_color"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showLayout"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/select_button_pic_bg"
+        android:text="立即绑定"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+</RelativeLayout>

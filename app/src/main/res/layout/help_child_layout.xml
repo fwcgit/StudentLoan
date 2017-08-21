@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#f0f0f0"
+              android:paddingLeft="@dimen/comm_margin"
+    >
+    <TextView
+        android:id="@+id/childTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:text="1、申请借款需要哪些认证"
+
+        />
+</LinearLayout>

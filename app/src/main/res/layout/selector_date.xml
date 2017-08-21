@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDateSelector"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#a0000000" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <RelativeLayout
+            android:id="@+id/llButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bithday_layout"
+            android:layout_alignRight="@+id/bithday_layout"
+            android:background="@drawable/bg_date_selector_top"
+            android:padding="12dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="60dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_circular_bg"
+                android:text="取消"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="60dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_circular_bg"
+                android:text="确定"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/viLineSepaerater"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_alignLeft="@+id/bithday_layout"
+            android:layout_alignRight="@+id/bithday_layout"
+            android:layout_below="@id/llButton"
+            android:background="@color/line_gray1" />
+
+        <RelativeLayout
+            android:id="@+id/bithday_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viLineSepaerater"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_date_selector" >
+
+            <LinearLayout
+                android:id="@+id/llWheel"
+                android:layout_width="wrap_content"
+                android:layout_height="220dip"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal" >
+
+                <com.studentloan.white.mode.view.wheel.WheelView
+                    android:id="@+id/year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1" />
+
+                <com.studentloan.white.mode.view.wheel.WheelView
+                    android:id="@+id/month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1" />
+
+                <com.studentloan.white.mode.view.wheel.WheelView
+                    android:id="@+id/day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="220.0dip"
+                android:layout_alignLeft="@id/llWheel"
+                android:layout_alignRight="@id/llWheel"
+                android:layout_gravity="center"
+                android:background="@drawable/datepickerview" >
+
+                <!-- android:background="@drawable/com_ttshrk_view_scroll_picker_background" -->
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLeftDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="25dip"
+        android:drawableRight="@drawable/icon_select_down"
+        android:text="2015年4月12日"
+        android:textColor="@color/black_text"
+        android:textSize="15sp"
+        android:visibility="invisible" />
+
+</RelativeLayout>

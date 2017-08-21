@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_bg"
+    android:fitsSystemWindows="true" >
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleLayout" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="12dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:text="1.两步拍照，证明自己是自己，请保证无关清晰无遮挡，背景为纯色。"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/selfFl1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/selfImg1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_hand_id" />
+
+                    <View
+                        android:id="@+id/selfView1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/selfFl2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="false"
+                    android:visibility="invisible" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/selfImg2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_picture" />
+
+                    <TextView
+                        android:id="@+id/selfTv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingBottom="8dp"
+                        android:text="本人审核照"
+                        android:textColor="#333333"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:id="@+id/selfView2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:layout_marginTop="20dp"
+                android:text="2.身份证需拍摄两张，分别为正面和反而"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/cardFl1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/cardImg1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_id_z" />
+
+                    <View
+                        android:id="@+id/cardView1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/cardFl2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/cardImg2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_id_f" />
+
+                    <View
+                        android:id="@+id/cardView2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:layout_marginTop="20dp"
+                android:text="3.学生证需将封面及个人信息页面每一张拍照上传，保证学生证信息资料全面、清晰。"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/studentFl1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/studentImg1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_student_id" />
+
+                    <View
+                        android:id="@+id/studentView1"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/studentFl2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/studentImg2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_student_id_in1" />
+
+                    <View
+                        android:id="@+id/studentView2"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/studentFl3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/studentImg3"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_student_id_in2" />
+
+                    <View
+                        android:id="@+id/studentView3"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/studentFl4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <com.studentloan.white.mode.view.RoundAngleImageView
+                        android:id="@+id/studentImg4"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_student_id_in3" />
+
+                    <View
+                        android:id="@+id/studentView4"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shape_frame_pic_bg"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:layout_marginTop="20dp"
+                android:text="4.学校一卡通照片(选填)"
+                android:visibility="gone"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:id="@+id/oneCardFl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:visibility="gone"
+                android:layout_marginTop="12dp" >
+
+                <com.studentloan.white.mode.view.RoundAngleImageView
+                    android:id="@+id/oneCardImg"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/icon_oncard" />
+
+
+                <View
+                    android:id="@+id/oneCardView"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/shape_frame_pic_bg"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="@dimen/btn_margin"
+                android:layout_marginRight="@dimen/btn_margin"
+                android:layout_marginTop="38dp"
+                android:background="@drawable/select_button_pic_bg"
+                android:text="确认提交"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

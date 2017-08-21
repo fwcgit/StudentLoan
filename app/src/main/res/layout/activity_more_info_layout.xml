@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/window_bg"
+                android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout"/>
+
+
+    <LinearLayout
+        android:id="@+id/centerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleLayout"
+        android:background="#fff"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:paddingBottom="12dp"
+            android:paddingLeft="@dimen/comm_margin"
+            android:paddingRight="@dimen/comm_margin"
+            android:paddingTop="12dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="8dp"
+                android:text="支付宝账号"
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                />
+
+            <EditText
+                android:id="@+id/alipayEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:hint="请输入支付宝账号"
+                android:textColor="#5e5e5e"
+                android:textColorHint="#999999"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#cccccc"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:paddingBottom="12dp"
+            android:paddingLeft="@dimen/comm_margin"
+            android:paddingRight="@dimen/comm_margin"
+            android:paddingTop="12dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="8dp"
+                android:text="常用邮箱    "
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                />
+
+            <EditText
+                android:id="@+id/emailEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:hint="请输入邮箱"
+                android:textColor="#5e5e5e"
+                android:textColorHint="#999999"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#cccccc"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:paddingBottom="12dp"
+            android:paddingLeft="@dimen/comm_margin"
+            android:paddingRight="@dimen/comm_margin"
+            android:paddingTop="12dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="8dp"
+                android:text="QQ账号      "
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                />
+
+            <EditText
+                android:id="@+id/qqEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:hint="请输入QQ账号"
+                android:textColor="#5e5e5e"
+                android:textColorHint="#999999"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#cccccc"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:paddingBottom="12dp"
+            android:paddingLeft="@dimen/comm_margin"
+            android:paddingRight="@dimen/comm_margin"
+            android:paddingTop="12dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="8dp"
+                android:text="微信账号    "
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                />
+
+            <EditText
+                android:id="@+id/weixinEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:hint="请输入微信账号"
+                android:textColor="#5e5e5e"
+                android:textColorHint="#999999"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/centerLayout"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:paddingRight="8dp"
+        android:text="温馨提示：为保证借款顺利，请务必填写真实信息！"
+        android:textColor="#5e5e5e"
+        android:textSize="12sp"
+        />
+
+</RelativeLayout>

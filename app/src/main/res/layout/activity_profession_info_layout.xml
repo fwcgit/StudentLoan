@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/window_bg"
+                android:fitsSystemWindows="true"
+    >
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout"/>
+
+    <LinearLayout
+        android:id="@+id/centerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/titleLayout"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/workTypeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/comm_margin"
+            android:paddingRight="@dimen/comm_margin"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="8dp"
+                android:text="职业类型"
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/workTypeTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="上班族"
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="1.8dp"
+                android:src="@drawable/icon_arrow_right_hui"
+                />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:id="@+id/whiteCollarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/comm_margin"
+                        android:paddingRight="@dimen/comm_margin"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="8dp"
+                            android:text="单位名称"
+                            android:textColor="#5e5e5e"
+                            android:textSize="14sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/companNameEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#00000000"
+                            android:gravity="right"
+                            android:hint="请填写单位公司"
+                            android:textColor="#5e5e5e"
+                            android:textColorHint="#999999"
+                            android:textSize="14sp"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="1.8dp"
+                            android:src="@drawable/icon_change"
+                            />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+                    <LinearLayout
+                        android:id="@+id/cityLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/comm_margin"
+                        android:paddingRight="@dimen/comm_margin"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="8dp"
+                            android:text="单位所在地"
+                            android:textColor="#5e5e5e"
+                            android:textSize="14sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/companCityTv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text=""
+                            android:textColor="#5e5e5e"
+                            android:textSize="14sp"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="1.8dp"
+                            android:src="@drawable/icon_arrow_right_hui"
+                            />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+                    <EditText
+                        android:id="@+id/companAddrEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:gravity="right"
+                        android:hint="请填写具体街道门牌号"
+                        android:paddingLeft="@dimen/comm_margin"
+                        android:paddingRight="@dimen/comm_margin"
+                        android:textColor="#5e5e5e"
+                        android:textColorHint="#999999"
+                        android:textSize="14sp"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/comm_margin"
+                        android:paddingRight="@dimen/comm_margin"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="8dp"
+                            android:text="单位电话"
+                            android:textColor="#5e5e5e"
+                            android:textSize="14sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/companPhoneEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#00000000"
+                            android:gravity="right"
+                            android:hint="请填写公司电话"
+                            android:textColor="#5e5e5e"
+                            android:textColorHint="#999999"
+                            android:textSize="14sp"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="1.8dp"
+                            android:src="@drawable/icon_change"
+                            />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/comm_margin"
+                            android:paddingRight="@dimen/comm_margin"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="8dp"
+                                android:text="工作时长"
+                                android:textColor="#5e5e5e"
+                                android:textSize="14sp"
+                                />
+
+                            <EditText
+                                android:id="@+id/workTimeEt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#00000000"
+                                android:enabled="false"
+                                android:gravity="right"
+                                android:hint="请选择工作时长"
+                                android:textColor="#5e5e5e"
+                                android:textColorHint="#999999"
+                                android:textSize="14sp"
+                                />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="1.8dp"
+                                android:src="@drawable/icon_arrow_right_hui"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/workTimeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"/>
+                    </FrameLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/comm_margin"
+                            android:paddingRight="@dimen/comm_margin"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="8dp"
+                                android:text="发薪日期"
+                                android:textColor="#5e5e5e"
+                                android:textSize="14sp"
+                                />
+
+                            <EditText
+                                android:id="@+id/wageDateEt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#00000000"
+                                android:enabled="false"
+                                android:gravity="right"
+                                android:hint="请选择发薪日期"
+                                android:textColor="#5e5e5e"
+                                android:textColorHint="#999999"
+                                android:textSize="14sp"
+                                />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="1.8dp"
+                                android:src="@drawable/icon_arrow_right_hui"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/wageDateView"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"/>
+                    </FrameLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/comm_margin"
+                            android:paddingRight="@dimen/comm_margin"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="8dp"
+                                android:text="薪资范围"
+                                android:textColor="#5e5e5e"
+                                android:textSize="14sp"
+                                />
+
+                            <EditText
+                                android:id="@+id/wageRangeEt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#00000000"
+                                android:enabled="false"
+                                android:gravity="right"
+                                android:hint="请选择薪资范围"
+                                android:textColor="#5e5e5e"
+                                android:textColorHint="#999999"
+                                android:textSize="14sp"
+                                />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="1.8dp"
+                                android:src="@drawable/icon_arrow_right_hui"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/wageRangeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"/>
+                    </FrameLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/comm_margin"
+                            android:paddingRight="@dimen/comm_margin"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="8dp"
+                                android:text="工资卡认证"
+                                android:textColor="#5e5e5e"
+                                android:textSize="14sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/wangyinTv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#00000000"
+                                android:enabled="false"
+                                android:gravity="right"
+                                android:text="未完成"
+                                android:textColor="#5e5e5e"
+                                android:textSize="14sp"
+                                />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="1.8dp"
+                                android:src="@drawable/icon_arrow_right_hui"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/yinlinAuthView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </FrameLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="#cccccc"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/studentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
+                android:paddingLeft="@dimen/comm_margin"
+                android:paddingRight="@dimen/comm_margin"
+                android:paddingTop="12dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="8dp"
+                    android:text="学校所在城市"
+                    android:textColor="#5e5e5e"
+                    android:textSize="14sp"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:gravity="right"
+                    android:hint="请选择所在城市"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1.8dp"
+                    android:src="@drawable/icon_arrow_right_hui"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#cccccc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
+                android:paddingLeft="@dimen/comm_margin"
+                android:paddingRight="@dimen/comm_margin"
+                android:paddingTop="12dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="8dp"
+                    android:text="学校名称"
+                    android:textColor="#5e5e5e"
+                    android:textSize="14sp"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:gravity="right"
+                    android:hint="请选择学校名称"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1.8dp"
+                    android:src="@drawable/icon_arrow_right_hui"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#cccccc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
+                android:paddingLeft="@dimen/comm_margin"
+                android:paddingRight="@dimen/comm_margin"
+                android:paddingTop="12dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="8dp"
+                    android:text="入学时间"
+                    android:textColor="#5e5e5e"
+                    android:textSize="14sp"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:gravity="right"
+                    android:hint="请选择入学时间"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1.8dp"
+                    android:src="@drawable/icon_arrow_right_hui"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#cccccc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
+                android:paddingLeft="@dimen/comm_margin"
+                android:paddingRight="@dimen/comm_margin"
+                android:paddingTop="12dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="8dp"
+                    android:text="学信网认证"
+                    android:textColor="#5e5e5e"
+                    android:textSize="14sp"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:gravity="right"
+                    android:hint="未完成"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1.8dp"
+                    android:src="@drawable/icon_arrow_right_hui"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#cccccc"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

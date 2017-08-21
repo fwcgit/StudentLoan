@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="@dimen/comm_margin"
+        android:layout_marginRight="@dimen/comm_margin"
+        >
+
+
+        <com.studentloan.white.mode.view.TouchDelView
+            android:id="@+id/delView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/bankBgLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bank_main_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="28dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/bankNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="交通银行"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="6dp"
+                        android:text="储蓄卡"
+                        android:textColor="#fff"
+                        android:textSize="12sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/bankCardNumTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="**** **** **** 6745"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="12dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/setCardImg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_bank_normal"
+                        />
+
+                    <TextView
+                        android:id="@+id/setCardTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="主卡"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/delBtn"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:background="@drawable/button_red_rectf_bg"
+                android:text="删除"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                />
+
+        </com.studentloan.white.mode.view.TouchDelView>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

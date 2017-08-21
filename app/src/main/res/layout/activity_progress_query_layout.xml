@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout" />
+
+    <LinearLayout
+        android:id="@+id/centerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:layout_below="@+id/titleLayout"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:id="@+id/fkLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="借款金额"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/jkPriceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:background="#cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="借款时间"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/jkDayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:background="#cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="借款费用"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/costPriceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:background="#cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="申请时间"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/dateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:background="#cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="借款申请"
+                        android:textColor="#b6b6b6"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="26dp"
+                            android:paddingRight="26dp">
+
+                            <TextView
+                                android:id="@+id/step1Tv"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:background="@drawable/shape_circle_bg"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#fff"
+                                android:textSize="12sp" />
+
+                            <View
+                                android:id="@+id/step1Line"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginLeft="-1dp"
+                                android:layout_marginRight="-1dp"
+                                android:layout_weight="1"
+                                android:background="@color/bg" />
+
+                            <TextView
+                                android:id="@+id/step2Tv"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:background="@drawable/shape_circle_bg"
+                                android:gravity="center"
+                                android:text="2"
+                                android:textColor="#fff"
+                                android:textSize="12sp" />
+
+                            <View
+                                android:id="@+id/step2Line"
+                                android:layout_width="0dp"
+                                android:layout_height="4dp"
+                                android:layout_marginLeft="-1dp"
+                                android:layout_marginRight="-1dp"
+                                android:layout_weight="1"
+                                android:background="@color/bg" />
+
+                            <TextView
+                                android:id="@+id/step3Tv"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:background="@drawable/shape_circle_bg"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="#fff"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/step1DetailTv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="申请借款"
+                                android:textColor="@color/bg"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/step2DetailTv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="申请借款"
+                                android:textColor="@color/bg"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/step3DetailTv"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="申请借款"
+                                android:textColor="@color/bg"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <include
+
+            layout="@layout/material_progress_layout" />
+    </LinearLayout>
+
+</RelativeLayout>

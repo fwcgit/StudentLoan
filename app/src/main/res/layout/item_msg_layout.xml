@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_msg_left"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/comm_margin"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/comm_margin"
+            android:paddingTop="4dp">
+
+            <TextView
+                android:id="@+id/dateTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2016-05-18"
+                android:textColor="#5d5d5d"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/timeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21:27:12"
+                android:textColor="#5d5d5d"
+                android:visibility="gone"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/contentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/comm_margin"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="@dimen/comm_margin"
+            android:text="快速学货,十分钟到账,推荐更多好友可提升个人借货额度。"
+            android:textColor="#5d5d5d"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

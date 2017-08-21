@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_bg"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout" />
+
+    <LinearLayout
+        android:id="@+id/selectLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/inputLayout"
+        android:layout_below="@id/inputLayout"
+        android:layout_marginTop="18dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="6dp">
+
+        <CheckBox
+            android:id="@+id/acceptCb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/check_box_bg"
+            android:checked="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:text="已同意"
+            android:textColor="@color/bg"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/xieyi1Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《注册与服务协议》"
+            android:textColor="#fe3939"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="及"
+            android:textColor="@color/bg"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ysTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《隐私保护协议》"
+            android:textColor="#fe3939"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="68dp"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:background="@drawable/select_button_pic_bg"
+        android:text="注册"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/comm_margin"
+        android:layout_marginRight="@dimen/comm_margin"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/edit_comm_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/icon_phone" />
+
+            <EditText
+                android:id="@+id/accountEt"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#00ffffff"
+                android:gravity="center_vertical"
+                android:hint="请输入您的手机号"
+                android:paddingLeft="6dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/font_color"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/icon_star" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_comm_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/icon_msm" />
+
+            <EditText
+                android:id="@+id/smsCodeEt"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#00ffffff"
+                android:gravity="center_vertical"
+                android:hint="请输入验证码"
+                android:paddingLeft="6dp"
+                android:textColor="@color/font_color"
+                android:textSize="14sp" />
+
+
+            <Button
+                android:id="@+id/sendCodeBtn"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/button_circular_bg"
+                android:gravity="center"
+                android:paddingEnd="12dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="发送验证码"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/icon_star" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_comm_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/icon_lock1" />
+
+            <EditText
+                android:id="@+id/passEt"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#00ffffff"
+                android:gravity="center_vertical"
+                android:hint="请输入您的密码(至少6位,包含数字各密码)"
+                android:paddingEnd="12dp"
+                android:paddingLeft="6dp"
+                android:password="true"
+                android:textColor="@color/font_color"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/icon_star" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:background="@drawable/edit_comm_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/icon_code" />
+
+            <EditText
+                android:id="@+id/inviteCodeEt"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="#00ffffff"
+                android:gravity="center_vertical"
+                android:hint="请输入邀请码(可选)"
+                android:paddingEnd="12dp"
+                android:paddingLeft="6dp"
+                android:textColor="@color/font_color"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

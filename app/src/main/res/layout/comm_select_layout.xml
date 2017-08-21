@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_bg"
+    android:fitsSystemWindows="true"
+     >
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout" />
+
+    <com.studentloan.white.mode.view.LetterIndexView
+        android:id="@+id/letterIndexView"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/titleLayout" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleLayout"
+        android:layout_toLeftOf="@id/letterIndexView"
+        android:scrollbars="none"
+        android:cacheColorHint="#00000000"
+        android:divider="@null" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/showLetterTv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:background="#fff"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#f0f"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

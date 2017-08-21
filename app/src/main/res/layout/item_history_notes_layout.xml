@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_rect_write_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/comm_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/hyPriceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="900.00元"
+                android:textColor="#ffbb40"
+                android:textSize="18sp"/>
+
+
+            <TextView
+                android:id="@+id/statusTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/comm_margin"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="正使用"
+                android:textColor="#ffbb40"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginTop="8dp"
+            android:background="#e6e6e6"/>
+
+        <TextView
+            android:id="@+id/jkPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="借款金额310元"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/jkDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:text="2016年5月19日借"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/hkDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:text="应还款日期：2016年5月18日"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/sjhkDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:text="实际还款日期：2016年5月18日"
+            android:textColor="#999999"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

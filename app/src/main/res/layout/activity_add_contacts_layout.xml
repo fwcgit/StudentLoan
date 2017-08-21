@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/window_bg"
+                android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    android:layout_below="@id/titleLayout"
+       >
+
+        <LinearLayout
+            android:id="@+id/showLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/tips"
+                android:textColor="#999999"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginTop="10dp"
+                android:text="1.直系亲属(必填)"
+                android:textColor="@color/font_color"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/relationLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin"
+                    android:paddingRight="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="关系"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/relationTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_arrow_right_hui"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:background="#cccccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin"
+                    android:paddingRight="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="姓名"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/sibNameEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:gravity="right"
+                        android:hint="请输入姓名"
+                        android:inputType="text"
+                        android:textColor="@color/font_color"
+                        android:textColorHint="@color/font_hint_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/icon_change"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:background="#cccccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="手机号"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/sibPhoneEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:gravity="right"
+                        android:hint="请输入手机号"
+                        android:inputType="phone"
+                        android:textColor="@color/font_color"
+                        android:textColorHint="@color/font_hint_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/selectImg1"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="2dp"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_contacts_phone"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginTop="10dp"
+                android:text="2.联系人(必填)"
+                android:textColor="@color/font_color"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lsRelationLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin"
+                    android:paddingRight="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="关系"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/lsRelationTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_arrow_right_hui"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:background="#cccccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin"
+                    android:paddingRight="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="姓名"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/lsSibNameEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:gravity="right"
+                        android:hint="请输入姓名"
+                        android:inputType="text"
+                        android:textColor="@color/font_color"
+                        android:textColorHint="@color/font_hint_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/icon_change"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:background="#cccccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="手机号"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/lsSibPhoneEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:gravity="right"
+                        android:hint="请输入手机号"
+                        android:inputType="phone"
+                        android:textColor="@color/font_color"
+                        android:textColorHint="@color/font_hint_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/selectImg2"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="2dp"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_contacts_phone"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_alignParentTop="true"
+                    android:background="#cccccc"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/comm_margin"
+                android:layout_marginTop="10dp"
+                android:text="3.联系人(必填)"
+                android:textColor="@color/font_color"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/hyRelationLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin"
+                    android:paddingRight="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="关系"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/hyRelationTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_arrow_right_hui"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:background="#cccccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin"
+                    android:paddingRight="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="姓名"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/hyName1Et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:gravity="right"
+                        android:hint="请输入姓名"
+                        android:inputType="text"
+                        android:textColor="@color/font_color"
+                        android:textColorHint="@color/font_hint_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/icon_change"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:layout_marginLeft="@dimen/comm_margin"
+                    android:layout_marginRight="@dimen/comm_margin"
+                    android:background="#cccccc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/comm_margin">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="手机号"
+                        android:textColor="@color/font_color"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/hyPhone1Et"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:gravity="right"
+                        android:hint="请输入手机号"
+                        android:inputType="phone"
+                        android:textColor="@color/font_color"
+                        android:textColorHint="@color/font_hint_color"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/selectImg3"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="2dp"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_contacts_phone"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
