@@ -15,6 +15,9 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
+/****
+ * fu
+ */
 @EActivity(R.layout.activity_help_detail_layout)
 public class HelpDetailActivity extends BaseActivity {
 	@ViewById

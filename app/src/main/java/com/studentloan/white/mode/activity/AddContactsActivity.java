@@ -49,7 +49,6 @@ public class AddContactsActivity extends BaseActivity implements ContactsUtils.I
 	@ViewById
 	EditText sibNameEt,sibPhoneEt,lsSibNameEt,lsSibPhoneEt,hyName1Et,hyPhone1Et;
 
-//	shoolName2Et,shoolPhone2Et;
 	@ViewById
 	Button submitBtn;
 	
