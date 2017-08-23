@@ -1,8 +1,10 @@
 package com.studentloan.white.mode.view;
 
 
-
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -41,6 +43,8 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 	private ExpandableListView expandableListView;// 扩展LISTVIEW
 	private ListView listView;
 	private WebView webView;
+	private RecyclerView recyclerView;
+
 	// ---------------------------------------------
 
 	public Scroller scroller;
@@ -97,6 +101,7 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 				customFootView.getMeasuredHeight() + dip2px(mContext, 10));
 		footParams.bottomMargin = -customFootView.getMeasuredHeight();
 		customFootView.setLayoutParams(footParams);
+
 	}
 
 	public boolean isHeadView() {
@@ -269,7 +274,10 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 					interceptTouch = ((AbsListView) listView).getChildCount() == 0 ? true : listView.getLastVisiblePosition() == listView.getCount() - 1
 							&& ((AbsListView) listView).getChildAt(((AbsListView) listView).getChildCount() - 1)
 									.getBottom() <= ((AbsListView) listView).getHeight();
+				}else if(recyclerView != null && recyclerView.getVisibility() == View.VISIBLE){
+					interceptTouch = recyclerViewScrollBottom();
 				}
+
 			} else if (offset < 0) {// 向下拉
 				pullStatus = Status.down.toString();
 				if (overWriteScrollView != null) {
@@ -282,7 +290,10 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 							.getChildAt(0).getTop() == 0;
 				} else if (webView != null) {
 					interceptTouch = webView.getScrollY() <= 0;
+				}else if(recyclerView != null){
+					interceptTouch = recyclerViewScrollTop();
 				}
+
 
 			}
 
@@ -579,6 +590,46 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 		customHeadView.setTimeKey(modelName);
+	}
+
+
+	/***
+	 * 判断recylerView 没到底部
+	 * @return false
+	 */
+	private boolean recyclerViewScrollBottom(){
+		RecyclerView.LayoutManager lm = recyclerView.getLayoutManager();
+		if(lm instanceof LinearLayoutManager){
+
+			LinearLayoutManager layoutManager = (LinearLayoutManager) lm;
+
+			return layoutManager.getItemCount() == 0 ? true : layoutManager.findLastVisibleItemPosition() == layoutManager.getItemCount() -1
+					&& layoutManager.getChildAt(layoutManager.getItemCount()-1).getBottom() <= recyclerView.getHeight();
+
+		}else if(lm instanceof GridLayoutManager){
+
+		}
+
+		return false;
+	}
+
+	/***
+	 * 判断recyclerView 滑动到顶部
+	 * @return false
+	 */
+	private boolean recyclerViewScrollTop(){
+		RecyclerView.LayoutManager lm = recyclerView.getLayoutManager();
+		if(lm instanceof LinearLayoutManager){
+
+			LinearLayoutManager layoutManager = (LinearLayoutManager) lm;
+
+			return layoutManager.findFirstVisibleItemPosition() == 0 && layoutManager.getItemCount() == 0 ? true : layoutManager.getChildAt(0).getTop() == 0;
+
+		}else if(lm instanceof GridLayoutManager){
+
+		}
+
+		return false;
 	}
 
 	

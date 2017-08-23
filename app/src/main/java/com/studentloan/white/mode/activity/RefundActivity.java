@@ -32,6 +32,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Date;
 import java.util.List;
@@ -195,8 +196,12 @@ public class RefundActivity extends BaseActivity {
 				String code = msg.substring(start+ser.length(), start+ser.length()+4);
 
 				if(code.equals("0000")){
+
 					notifationJiangliE(jlNoti);
 					showToast("支付成功");
+
+					EventBus.getDefault().post(new String("success"));
+
 					finish();
 				}else{
 					showToast("支付失败");

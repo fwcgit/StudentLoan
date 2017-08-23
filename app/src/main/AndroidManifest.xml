@@ -332,7 +332,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="429a514c06ea191d916dc8da" /> <!-- </>值来自开发者平台取得的AppKey -->
+            android:value="9cc434f09aa566fee0d93341" /> <!-- </>值来自开发者平台取得的AppKey -->
         <!-- 云捕 -->
         <meta-data
             android:name="BUGRPT_APPID"

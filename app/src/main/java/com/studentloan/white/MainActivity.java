@@ -3,7 +3,9 @@ package com.studentloan.white;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.studentloan.white.interfaces.DialogCallback;
 import com.studentloan.white.mode.fragment.HomeFragment;
 import com.studentloan.white.mode.fragment.MoreFragment;
 import com.studentloan.white.mode.fragment.PersonalCenterFragment;
@@ -27,6 +30,9 @@ import com.studentloan.white.net.data.Borrow;
 import com.studentloan.white.net.data.BorrowResponse;
 import com.studentloan.white.net.data.Shenghe;
 import com.studentloan.white.net.data.ShengheResponse;
+import com.studentloan.white.net.data.UserInfo;
+import com.studentloan.white.utils.DialogUtils;
+import com.studentloan.white.utils.SystemOpt;
 import com.yolanda.nohttp.rest.Response;
 
 import org.androidannotations.annotations.AfterViews;
@@ -103,6 +109,8 @@ public class MainActivity extends FragmentActivity {
 		if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
 			requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, SD_WRITE_REQUEST_CODE);
 		}
+
+		checkVersionUpdate();
 
 	}
 
@@ -289,6 +297,35 @@ public class MainActivity extends FragmentActivity {
 					callback.handleMessage(msg);
 				}
 			},true);
+		}
+
+
+		private void checkVersionUpdate(){
+
+			final UserInfo ui = MyApplication.getInstance().userInfo;
+			String versionName = SystemOpt.getInstance().appSysInfo.getAppVersion();
+
+			if(!versionName.equals(ui.latestVersion)){
+				DialogUtils.getInstance().showUpdate(this, new DialogCallback() {
+					@Override
+					public void confirm() {
+						Intent intent = new Intent();
+						intent.setAction(Intent.ACTION_VIEW);
+						intent.addCategory(Intent.CATEGORY_BROWSABLE);
+						intent.setData(Uri.parse(ui.downloadUrl));
+						startActivity(intent);
+					}
+
+					@Override
+					public void cancel() {
+						if(ui.foreceUpdate){
+							MyApplication.isLogin = false;
+							MyApplication.mainActivity = null;
+							finish();
+						}
+					}
+				});
+			}
 		}
 
 

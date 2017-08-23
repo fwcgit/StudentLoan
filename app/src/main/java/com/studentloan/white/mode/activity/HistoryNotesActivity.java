@@ -19,6 +19,8 @@ import com.yolanda.nohttp.rest.Response;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 /***
  * 历史记录
@@ -44,6 +46,8 @@ public class HistoryNotesActivity extends BaseActivity implements OnRefreshFoote
 		setTitleText("借款记录");
 
 		getUserInfo();
+
+		EventBus.getDefault().register(this);
 
 		sv.setModelName(getClass().getName());
 		sv.setFootView(true);
@@ -100,5 +104,17 @@ public class HistoryNotesActivity extends BaseActivity implements OnRefreshFoote
 				sv.pullShow();
 			}
 		},false);
+	}
+
+	@Subscribe
+	public void onEvent(String tag){
+		sv.startDownRefresh();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		EventBus.getDefault().unregister(this);
 	}
 }
