@@ -1,9 +1,9 @@
 package com.studentloan.white.mode.activity;
 
-import android.content.Intent;
+import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.studentloan.white.R;
 import com.studentloan.white.interfaces.OnRefreshFooterListener;
@@ -12,8 +12,8 @@ import com.studentloan.white.mode.adapter.HistoryNotesAdapter;
 import com.studentloan.white.mode.view.PullUpView;
 import com.studentloan.white.net.HttpListener;
 import com.studentloan.white.net.ServerInterface;
-import com.studentloan.white.net.data.Borrow;
 import com.studentloan.white.net.data.BorrowArrayResponse;
+import com.studentloan.white.utils.ConvertUtils;
 import com.yolanda.nohttp.rest.Response;
 
 import org.androidannotations.annotations.AfterViews;
@@ -30,7 +30,7 @@ import org.greenrobot.eventbus.Subscribe;
 @EActivity(R.layout.activity_history_notes_layout)
 public class HistoryNotesActivity extends BaseActivity implements OnRefreshFooterListener,OnRefreshHeadListener {
 	@ViewById
-	public ListView listView;
+	public RecyclerView recyclerView;
 	@ViewById
 	public PullUpView sv;
 	
@@ -54,17 +54,44 @@ public class HistoryNotesActivity extends BaseActivity implements OnRefreshFoote
 		sv.setOnRefreshFooterListener(this);
 		sv.setOnRefreshHeadListener(this);
 		sv.startDownRefresh();
-		listView.setAdapter(adapter = new HistoryNotesAdapter(this));
-		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-				Borrow borrow = (Borrow) adapter.getItem(i);
-				if(borrow.jieKuanZhuangTai == 2){
-					com.studentloan.white.mode.activity.RefundActivity_.intent(HistoryNotesActivity.this).
-							flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
-				}
+
+		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+		linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+		recyclerView.setLayoutManager(linearLayoutManager);
+		recyclerView.addItemDecoration(new ItemSpaceDecoration());
+		recyclerView.setAdapter(adapter = new HistoryNotesAdapter(this));
+
+
+//		listView.setAdapter(adapter = new HistoryNotesAdapter(this));
+//		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//			@Override
+//			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//				Borrow borrow = (Borrow) adapter.getItem(i);
+//				if(borrow.jieKuanZhuangTai == 2){
+//					com.studentloan.white.mode.activity.RefundActivity_.intent(HistoryNotesActivity.this).
+//							flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
+//				}
+//			}
+//		});
+	}
+
+	class ItemSpaceDecoration extends RecyclerView.ItemDecoration{
+		@Override
+		public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+			super.getItemOffsets(outRect, view, parent, state);
+
+			if(recyclerView.getChildPosition(view) == 0){
+
+				outRect.top = ConvertUtils.dip2px(HistoryNotesActivity.this,12f);
+				outRect.bottom = ConvertUtils.dip2px(HistoryNotesActivity.this,12f);
+
+			}else{
+
+				outRect.bottom = ConvertUtils.dip2px(HistoryNotesActivity.this,12f);
+
 			}
-		});
+
+		}
 	}
 
 	@Override

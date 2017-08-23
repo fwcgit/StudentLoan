@@ -2,10 +2,10 @@ package com.studentloan.white.mode.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.studentloan.white.R;
@@ -17,7 +17,8 @@ import java.util.Date;
 import java.util.List;
 
 @SuppressLint("InflateParams")
-public class HistoryNotesAdapter extends BaseAdapter {
+public class HistoryNotesAdapter extends RecyclerView.Adapter<HistoryNotesAdapter.Holder> {
+
 	private Context context;
 	private List<Borrow> list = new ArrayList<Borrow>();
 
@@ -27,40 +28,17 @@ public class HistoryNotesAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public int getCount() {
-		return list == null ? 0 : list.size();
+	public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+		Holder holder = new Holder(LayoutInflater.from(context).inflate(R.layout.item_history_notes_layout,parent,false));
+
+		return holder;
 	}
 
 	@Override
-	public Object getItem(int position) {
-		return list.get(position);
-	}
-
-	@Override
-	public long getItemId(int position) {
-		return position;
-	}
-
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		Holder h = null;
-		if(convertView == null){
-			h = new Holder();
-			convertView = LayoutInflater.from(context).inflate(R.layout.item_history_notes_layout, null);
-			h.hyPriceTv = (TextView) convertView.findViewById(R.id.hyPriceTv);
-			h.jkPriceTv = (TextView) convertView.findViewById(R.id.jkPriceTv);
-			h.jkDateTv = (TextView) convertView.findViewById(R.id.jkDateTv);
-			h.hkDateTv = (TextView) convertView.findViewById(R.id.hkDateTv);
-			h.sjhkDateTv = (TextView) convertView.findViewById(R.id.sjhkDateTv);
-			h.statusTv = (TextView) convertView.findViewById(R.id.statusTv);
-			convertView.setTag(h);
-		}else{
-			h = (Holder) convertView.getTag();
-		}
-
+	public void onBindViewHolder(Holder h, int position) {
 
 		Borrow borrow = list.get(position);
-
 		h.hyPriceTv.setText(borrow.huanKuanJinE+" 元");
 		h.jkPriceTv.setText("借款金额："+borrow.jieKuanJinE+" 元");
 		h.jkDateTv.setText("借款日期："+ ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi),"yyyy年MM月dd日"));
@@ -98,12 +76,28 @@ public class HistoryNotesAdapter extends BaseAdapter {
 			h.sjhkDateTv.setText("实际还款日期："+ConvertUtils.dateTimeToStr(new Date(borrow.huanKuanRiQi),"yyyy年MM月dd日"));
 
 		}
-
-		return convertView;
 	}
+
+	@Override
+	public int getItemCount() {
+		return list.size();
+	}
+
+
 	
-	public class Holder{
+	public class Holder extends RecyclerView.ViewHolder{
 		TextView hyPriceTv,jkPriceTv,jkDateTv,hkDateTv,sjhkDateTv,statusTv;
+
+		public Holder(View view) {
+			super(view);
+
+			hyPriceTv = (TextView) view.findViewById(R.id.hyPriceTv);
+			jkPriceTv = (TextView) view.findViewById(R.id.jkPriceTv);
+			jkDateTv = (TextView) view.findViewById(R.id.jkDateTv);
+			hkDateTv = (TextView) view.findViewById(R.id.hkDateTv);
+			sjhkDateTv = (TextView) view.findViewById(R.id.sjhkDateTv);
+			statusTv = (TextView) view.findViewById(R.id.statusTv);
+		}
 	}
 	
 	public void setHistoryList(List<Borrow> list,boolean ref) {
