@@ -312,7 +312,7 @@ public class MainActivity extends FragmentActivity {
 						Intent intent = new Intent();
 						intent.setAction(Intent.ACTION_VIEW);
 						intent.addCategory(Intent.CATEGORY_BROWSABLE);
-						intent.setData(Uri.parse(ui.downloadUrl));
+						intent.setData(Uri.parse(MyContacts.BASE_URL+ui.downloadUrl));
 						startActivity(intent);
 					}
 

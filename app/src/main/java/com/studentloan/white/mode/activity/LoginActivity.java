@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity implements HttpListener<LoginInf
         String pwd = pwdEt.getText().toString();
         pwd = MD5.md5(pwd);
 
-        String urlFormat = String.format(ServerInterface.LOGIN,userEt.getText().toString(),pwd,app.systemOpt.appSysInfo.getVersionCode());
+        String urlFormat = String.format(ServerInterface.LOGIN,userEt.getText().toString(),pwd,app.systemOpt.appSysInfo.getAppVersion());
 		requestPost(urlFormat.hashCode(), null, urlFormat, LoginInfoResponse.class,this,true);
 	}
 	
