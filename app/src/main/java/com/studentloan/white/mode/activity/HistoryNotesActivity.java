@@ -1,5 +1,6 @@
 package com.studentloan.white.mode.activity;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import com.studentloan.white.mode.adapter.HistoryNotesAdapter;
 import com.studentloan.white.mode.view.PullUpView;
 import com.studentloan.white.net.HttpListener;
 import com.studentloan.white.net.ServerInterface;
+import com.studentloan.white.net.data.Borrow;
 import com.studentloan.white.net.data.BorrowArrayResponse;
 import com.studentloan.white.utils.ConvertUtils;
 import com.yolanda.nohttp.rest.Response;
@@ -60,19 +62,23 @@ public class HistoryNotesActivity extends BaseActivity implements OnRefreshFoote
 		recyclerView.setLayoutManager(linearLayoutManager);
 		recyclerView.addItemDecoration(new ItemSpaceDecoration());
 		recyclerView.setAdapter(adapter = new HistoryNotesAdapter(this));
+		adapter.setOnItemClickListener(new HistoryNotesAdapter.OnItemClicklistener() {
+			@Override
+			public void onItemClick(View view, int position) {
+				Borrow borrow = adapter.getItem(position);
+				if(borrow.jieKuanZhuangTai == 2){
+					com.studentloan.white.mode.activity.RefundActivity_.intent(HistoryNotesActivity.this).
+							flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
+				}
+			}
+
+			@Override
+			public void onItemLongClick(View view, int position) {
+
+			}
+		});
 
 
-//		listView.setAdapter(adapter = new HistoryNotesAdapter(this));
-//		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//			@Override
-//			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//				Borrow borrow = (Borrow) adapter.getItem(i);
-//				if(borrow.jieKuanZhuangTai == 2){
-//					com.studentloan.white.mode.activity.RefundActivity_.intent(HistoryNotesActivity.this).
-//							flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
-//				}
-//			}
-//		});
 	}
 
 	class ItemSpaceDecoration extends RecyclerView.ItemDecoration{

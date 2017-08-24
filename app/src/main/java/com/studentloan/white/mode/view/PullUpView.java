@@ -621,6 +621,8 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 	 * @return false
 	 */
 	private boolean recyclerViewScrollTop(){
+		LogUtils.logDug("-----"+recyclerView.getScaleY()+"");
+
 		RecyclerView.LayoutManager lm = recyclerView.getLayoutManager();
 		if(lm instanceof LinearLayoutManager){
 
@@ -631,7 +633,7 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 			}else if(layoutManager.getChildAt(0).getTop() < 0){
 				return false;
 			}else if(layoutManager.getChildAt(0).getTop() > 0){
-
+				LogUtils.logDug(recyclerView.getScaleY()+"");
 				return layoutManager.findFirstVisibleItemPosition() == 0 ;
 
 			}else{

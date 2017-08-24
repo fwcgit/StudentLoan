@@ -12,6 +12,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -304,6 +305,11 @@ public class MainActivity extends FragmentActivity {
 
 			final UserInfo ui = MyApplication.getInstance().userInfo;
 			String versionName = SystemOpt.getInstance().appSysInfo.getAppVersion();
+
+			if(TextUtils.isEmpty(ui.latestVersion) || TextUtils.isEmpty(ui.downloadUrl))
+			{
+				return;
+			}
 
 			if(!versionName.equals(ui.latestVersion)){
 				DialogUtils.getInstance().showUpdate(this, new DialogCallback() {

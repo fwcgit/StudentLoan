@@ -21,10 +21,24 @@ public class HistoryNotesAdapter extends RecyclerView.Adapter<HistoryNotesAdapte
 
 	private Context context;
 	private List<Borrow> list = new ArrayList<Borrow>();
+	private OnItemClicklistener listerener;
+
+	public interface OnItemClicklistener{
+		void onItemClick(View view,int position);
+		void onItemLongClick(View view,int position);
+	}
 
 	public HistoryNotesAdapter(Context context) {
 		super();
 		this.context = context;
+	}
+
+	public void setOnItemClickListener(OnItemClicklistener listener){
+		this.listerener = listener;
+	}
+
+	public Borrow getItem(int position){
+		return list.get(position);
 	}
 
 	@Override
@@ -36,7 +50,24 @@ public class HistoryNotesAdapter extends RecyclerView.Adapter<HistoryNotesAdapte
 	}
 
 	@Override
-	public void onBindViewHolder(Holder h, int position) {
+	public void onBindViewHolder(final Holder h, final int position) {
+
+		if(listerener != null){
+			h.view.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					listerener.onItemClick(h.view,position);
+				}
+			});
+
+			h.view.setOnLongClickListener(new View.OnLongClickListener() {
+				@Override
+				public boolean onLongClick(View v) {
+					listerener.onItemLongClick(h.view,position);
+					return false;
+				}
+			});
+		}
 
 		Borrow borrow = list.get(position);
 		h.hyPriceTv.setText(borrow.huanKuanJinE+" 元");
@@ -86,10 +117,13 @@ public class HistoryNotesAdapter extends RecyclerView.Adapter<HistoryNotesAdapte
 
 	
 	public class Holder extends RecyclerView.ViewHolder{
+		View view;
 		TextView hyPriceTv,jkPriceTv,jkDateTv,hkDateTv,sjhkDateTv,statusTv;
 
 		public Holder(View view) {
 			super(view);
+
+			this.view = view;
 
 			hyPriceTv = (TextView) view.findViewById(R.id.hyPriceTv);
 			jkPriceTv = (TextView) view.findViewById(R.id.jkPriceTv);
