@@ -2,6 +2,7 @@ package com.studentloan.white.mode.activity;
 
 import android.content.Intent;
 import android.text.TextUtils;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
@@ -32,6 +33,8 @@ public class LoginActivity extends BaseActivity implements HttpListener<LoginInf
 	public EditText userEt,pwdEt;
 	@ViewById
 	public CheckBox rememCb;
+	@ViewById
+	public Button loginBtn;
 	
 	@Extra
 	public boolean isPushMsg = false;
@@ -85,6 +88,8 @@ public class LoginActivity extends BaseActivity implements HttpListener<LoginInf
 			showToast("密码不正确");
 			return;
 		}
+
+		loginBtn.setEnabled(false);
 		
         String pwd = pwdEt.getText().toString();
         pwd = MD5.md5(pwd);
@@ -106,6 +111,9 @@ public class LoginActivity extends BaseActivity implements HttpListener<LoginInf
 
 	@Override
 	public void onSucceed(int what, Response<LoginInfoResponse> response) {
+
+		loginBtn.setEnabled(true);
+
 		if(response.isSucceed()&&response.get() != null){
 			if(response.get().errorCode.equals("0")){
 				if(rememCb.isChecked()){
@@ -127,7 +135,7 @@ public class LoginActivity extends BaseActivity implements HttpListener<LoginInf
 
 	@Override
 	public void onFailed(int what, Response<LoginInfoResponse> response) {
-
+		loginBtn.setEnabled(true);
 	}
 
 }

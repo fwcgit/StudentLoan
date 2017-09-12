@@ -45,7 +45,6 @@ import com.studentloan.white.net.data.ShengheResponse;
 import com.studentloan.white.utils.ConUtil;
 import com.studentloan.white.utils.DialogUtils;
 import com.studentloan.white.utils.FileBase64;
-import com.studentloan.white.utils.IDCard;
 import com.studentloan.white.utils.SdUtil;
 import com.yolanda.nohttp.FileBinary;
 import com.yolanda.nohttp.RequestMethod;
@@ -64,7 +63,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -111,6 +109,8 @@ public class PersonalInfoActivity extends BaseActivity {
 		isIDCardValid = true;
 
 	}
+
+
 
 	@Override
 	protected void onResume() {
@@ -234,17 +234,6 @@ public class PersonalInfoActivity extends BaseActivity {
 
 		if(TextUtils.isEmpty(idCard)){
 			showToast("身份证号不能为空");
-			return;
-		}
-
-		String idCheck = "身份证格式错误";
-		try {
-			idCheck = IDCard.IDCardValidate(idCard);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		if(!idCheck.equals("")){
-			showToast(idCheck);
 			return;
 		}
 
@@ -797,8 +786,11 @@ public class PersonalInfoActivity extends BaseActivity {
 					@Override
 					public void onFailure(int i, Header[] headers,
 										  byte[] bytes, Throwable throwable) {
+
 						String error = new String(bytes);
 						Log.e("TAG", "失败信息：" + error);
+
+						showToast("人脸身份识别失败");
 						// 请求失败
 
 						cancelDialog();

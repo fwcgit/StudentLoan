@@ -35,11 +35,14 @@ public class RegisterActivity extends BaseActivity {
 	EditText accountEt,smsCodeEt,inviteCodeEt,passEt;
 	@ViewById
 	CheckBox acceptCb;
-	
+	@ViewById
+	Button registerBtn;
 	@ViewById
 	Button sendCodeBtn;
+
 	private Timer timer;
 	private int sendCodeTime = 60;
+
 	@Override
 	@AfterViews
 	public void initViews() {
@@ -123,6 +126,8 @@ public class RegisterActivity extends BaseActivity {
 			return;
 		}
 
+		registerBtn.setEnabled(false);
+
         pwd = MD5.md5(pwd);
 
 		String urlFormat = String.format(ServerInterface.USER_REGISTER,phone,smsCode,pwd,inviteCode);
@@ -136,6 +141,9 @@ public class RegisterActivity extends BaseActivity {
 
 			@Override
 			public void onSucceed(int what, Response<BooleanResponse> response) {
+
+				registerBtn.setEnabled(true);
+
 				if(response.isSucceed() && response.get() != null){
 					if(response.get().result){
 						showToast("注册成功！");
@@ -147,7 +155,7 @@ public class RegisterActivity extends BaseActivity {
 
 			@Override
 			public void onFailed(int what, Response<BooleanResponse> response) {
-
+				registerBtn.setEnabled(true);
 			}
 
 		}, true);

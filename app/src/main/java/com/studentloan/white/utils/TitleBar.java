@@ -65,11 +65,11 @@ public class TitleBar {
 		}
 	}
 	public interface  TitleCallBack{
-		public void backClick(ImageView backImg);
-		public  void rightClick(ImageView rightImg);
-		public void rightImg(ImageView rightImg);
-		public void rightTv(TextView tv);
-		public void rightTvClick(TextView tv);
+		void backClick(ImageView backImg);
+		void rightClick(ImageView rightImg);
+		void rightImg(ImageView rightImg);
+		void rightTv(TextView tv);
+		void rightTvClick(TextView tv);
 	}
 	
 	public void showBack(boolean show){

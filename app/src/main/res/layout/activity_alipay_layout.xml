@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上海禹微资产管理有限公司"
+                android:text="上海禹徽资产管理有限公司"
                 android:textColor="@color/bg"
                 android:textSize="12sp"/>
         </LinearLayout>
@@ -66,7 +66,6 @@
             android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
             android:text="yingjika58@163.com"
-
             android:textColor="@color/bg"
             android:textSize="28sp"/>
 

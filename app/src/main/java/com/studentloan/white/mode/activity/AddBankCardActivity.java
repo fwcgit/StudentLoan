@@ -97,7 +97,20 @@ public class AddBankCardActivity extends BaseActivity {
     }
 
     private void sendSmsCode(){
-        String formatUrl = String.format(ServerInterface.SMS_BIND_BANK_CARD,userInfo.account.cellphone,userInfo.token);
+
+        String phone = phoneEt.getText().toString();
+
+        if(TextUtils.isEmpty(phone)){
+            showToast("请输入预留手机号");
+            return;
+        }
+
+        if(!app.isTelPhone(phone)){
+            showToast("请输入合法的手机号");
+            return;
+        }
+
+        String formatUrl = String.format(ServerInterface.SMS_BIND_BANK_CARD,phone,userInfo.token);
         requestPost(formatUrl.hashCode(), null, formatUrl, BooleanResponse.class, new HttpListener<BooleanResponse>() {
             @Override
             public void onSucceed(int what, Response<BooleanResponse> response) {
@@ -133,6 +146,11 @@ public class AddBankCardActivity extends BaseActivity {
 
         if(TextUtils.isEmpty(phone)){
             showToast("请输入预留手机号");
+            return;
+        }
+
+        if(!app.isTelPhone(phone)){
+            showToast("请输入合法的手机号");
             return;
         }
 
