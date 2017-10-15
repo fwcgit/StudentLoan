@@ -199,6 +199,42 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	@Click
 	public void moreInfoLayout(){
 
+		if(userInfo.identification == null){
+			if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
+				showToast("你的个人信息已超最大认证次数.无法使用");
+				return;
+			}
+		}
+
+		if(userInfo.wangYinRenZhengJieGuo != 1){
+			if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
+				showToast("你的网银认证已超最大次数.无法使用");
+				return;
+			}
+		}
+		
+		if(null == userInfo.identification){
+			showToast("请完成个人信息");
+			return;
+		}
+
+		if(null == userInfo.whiteCollar){
+			showToast("请完成职业信息");
+			return;
+		}
+
+		if(null == userInfo.whiteCollar){
+			showToast("请完成紧急联系人信息");
+			return;
+		}
+
+		int dayTime = 24 * 60 * 60 * 1000;
+
+		if(null == userInfo.yunYingShangVeriTime || (userInfo.serverTime - userInfo.yunYingShangVeriTime)/dayTime > 60  ){
+			showToast("请完善手机运营商信息");
+			return;
+		}
+
 		com.studentloan.white.mode.activity.MoreInfoActivity_.intent(this).
 					flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
 

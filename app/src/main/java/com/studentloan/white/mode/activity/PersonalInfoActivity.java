@@ -575,7 +575,7 @@ public class PersonalInfoActivity extends BaseActivity {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("api_key", "mJovDXnYtCDFc0AX-HRwzv366IGC3a8g");
 		params.put("api_secret", "EV6vuhRapp4OiGLzGVX7qDpf-PIlKl96");
-
+		params.put("legality","1");
 
 		Request<String> request = new CustomDataRequest<String>("https://api.faceid.com/faceid/v1/ocridcard", RequestMethod.POST,null);
 		request.add(params);
@@ -589,6 +589,13 @@ public class PersonalInfoActivity extends BaseActivity {
 							try {
 								JSONObject jsonObject = new JSONObject(response.get());
 
+								if(jsonObject.has("legality")){
+									JSONObject legality = jsonObject.getJSONObject("legality");
+									if(legality.get("Photocopy").equals("1") || legality.get("Screen").equals("1") || legality.get("Edited").equals("1")){
+										showToast("身份证无效！");
+										return;
+									}
+								}
 								if(jsonObject.has("id_card_number")){
 									String idNumber = jsonObject.getString("id_card_number");
 									int age = IdcardUtils.getAgeByIdCard(idNumber);
@@ -758,6 +765,26 @@ public class PersonalInfoActivity extends BaseActivity {
 						cancelDialog();
 
 						JsonObject jo = (JsonObject) new JsonParser().parse(success);
+
+						if(jo.has("face_genuineness")){
+
+							JsonObject faceGenuineness = jo.getAsJsonObject("face_genuineness");
+
+							float synthetic_face_confidence = faceGenuineness.get("synthetic_face_confidence").getAsFloat();
+							float synthetic_face_threshold = faceGenuineness.get("synthetic_face_threshold").getAsFloat();
+
+							float screen_replay_confidence = faceGenuineness.get("screen_replay_confidence").getAsFloat();
+							float screen_replay_threshold = faceGenuineness.get("screen_replay_threshold").getAsFloat();
+
+							if(!(synthetic_face_confidence < synthetic_face_threshold) || !(screen_replay_confidence < screen_replay_threshold)){
+
+								showToast("人脸识别失败！");
+								return;
+
+							}
+
+						}
+
 						if(jo.has("result_faceid")){
 							JsonObject result_faceid = (JsonObject) new JsonParser().parse(jo.get("result_faceid").toString());
 							float confidence =  0f;

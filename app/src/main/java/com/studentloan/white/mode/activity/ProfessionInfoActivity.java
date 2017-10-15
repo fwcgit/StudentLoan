@@ -90,6 +90,8 @@ public class ProfessionInfoActivity extends BaseActivity {
 
         getShengheState();
 
+        refreshWangyin();
+
     }
 
     private void showView(){
@@ -413,7 +415,9 @@ public class ProfessionInfoActivity extends BaseActivity {
 
                         MyApplication.mainActivity.getShengheState();
 
+
                         finish();
+
 
                     }else{
                         int time = 0;
@@ -456,6 +460,34 @@ public class ProfessionInfoActivity extends BaseActivity {
                 if(dialog != null && dialog.isShowing()){
                     dialog.dismiss();
                 }
+            }
+        },false);
+    }
+
+    public void refreshWangyin(){
+        String formatUrl = String.format(ServerInterface.QUERY_WANG_YIN,MyApplication.getInstance().userInfo.account.cellphone);
+
+        requestGet(formatUrl.hashCode(), formatUrl, IntegerResponse.class, new HttpListener<IntegerResponse>() {
+            @Override
+            public void onSucceed(int what, Response<IntegerResponse> response) {
+                if(response.isSucceed() && response.get() != null){
+
+                    if(response.get().errorCode.equals("0")){
+
+                        MyApplication.getInstance().userInfo.wangYinRenZhengJieGuo = 1;
+                        MyApplication.getInstance().userInfo.shengYuWangYinRenZhengCiShu = response.get().result;
+
+                        showView();
+
+                        MyApplication.mainActivity.getShengheState();
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailed(int what, Response<IntegerResponse> response) {
+
             }
         },false);
     }

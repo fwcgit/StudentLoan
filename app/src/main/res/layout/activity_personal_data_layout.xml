@@ -391,7 +391,7 @@
                 android:background="#eeeeee"
                 >
 
-                <TextView
+               <!-- <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="加分认证"
@@ -406,6 +406,7 @@
                     android:textColor="#d38f5f"
                     android:textSize="16sp"
                     />
+                    !-->
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/moreInfoLayout"
@@ -444,7 +445,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="补充可以增加审核通过概率哟"
+                        android:text="请完善更多信息"
                         android:textColor="#9fa0a1"
                         android:textSize="13sp"
                         />

@@ -1,9 +1,7 @@
 package com.studentloan.white.mode.activity;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -34,6 +32,7 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 import org.greenrobot.eventbus.EventBus;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -43,8 +42,7 @@ public class RefundActivity extends BaseActivity {
 	@ViewById
 	public TextView jkPriceTv,jkTimeTv,repartDatTv,yuqiDaysTv,refundPriceTv;
 
-	@SuppressLint("NewApi")
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private SimpleDateFormat dateFormat = null;
 
 	private Borrow br;
 
@@ -53,6 +51,9 @@ public class RefundActivity extends BaseActivity {
 	public void initViews() {
 		super.initViews();
 		setTitleText("还款");
+
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 		getUserInfo();
 		getLoanInfo();
 
