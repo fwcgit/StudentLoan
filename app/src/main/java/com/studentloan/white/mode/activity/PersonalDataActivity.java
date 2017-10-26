@@ -212,7 +212,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 				return;
 			}
 		}
-		
+
 		if(null == userInfo.identification){
 			showToast("请完成个人信息");
 			return;
@@ -318,6 +318,11 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 
 		if(null == userInfo.yunYingShangVeriTime || (userInfo.serverTime - userInfo.yunYingShangVeriTime)/dayTime > 60  ){
 			showToast("请完善手机运营商信息");
+			return;
+		}
+
+		if(null == userInfo.moreInfo){
+			showToast("请完成更多信息");
 			return;
 		}
 
