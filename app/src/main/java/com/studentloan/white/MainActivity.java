@@ -44,7 +44,7 @@ import org.androidannotations.annotations.ViewById;
 /***
  * 主Activity
  * @author fu
- *
+ *1.0.2
  */
 @SuppressLint("NewApi")
 @EActivity(R.layout.activity_main)
