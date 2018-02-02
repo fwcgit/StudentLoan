@@ -12,6 +12,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,7 +48,7 @@ import org.androidannotations.annotations.ViewById;
  */
 @SuppressLint("NewApi")
 @EActivity(R.layout.activity_main)
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
 	private static final int SD_WRITE_REQUEST_CODE = 0X212;
 	private static final int CAMERA_PERMISSION_REQUEST_CODE = 0X211;

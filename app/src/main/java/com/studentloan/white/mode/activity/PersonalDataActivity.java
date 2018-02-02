@@ -51,7 +51,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	public static final int REQUEST_SERVER_CODE = 0x10002;
 
 	@ViewById
-	TextView rightTv,persionInfoComleteTv,professionComleteTv,contactsComleteTv,operatorComleteTv,moreComleteTv;
+	TextView rightTv,xuexinComleteTv,professionComleteTv,contactsComleteTv,operatorComleteTv,moreComleteTv;
 
 	private  ContactsUtils contactsUtils;
 	private Dialog dialog;
@@ -78,14 +78,8 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	}
 
 	private void refreshView(){
-		if(null !=userInfo.identification){
-			persionInfoComleteTv.setText("已完善");
-		}
-
-		if(null != userInfo.whiteCollar ){
-			if(userInfo.wangYinRenZhengJieGuo == 1){
-				professionComleteTv.setText("已完善");
-			}
+		if(null !=userInfo.xueXinVeriTime){
+			xuexinComleteTv.setText("已完善");
 		}
 
 		if(null != userInfo.emergencyContact){
@@ -144,6 +138,11 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 		if(userInfo.submit == 1 || userInfo.verificationResult == 1) return;
 		if(userInfo.identification != null) return;
 
+		if(null == userInfo.xueXinVeriTime || userInfo.xueXinVeriTime <=0 ){
+			showToast("请完善学信网信息");
+			return;
+		}
+
 		if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
 			showToast("你的个人信息已超最大认证次数.无法使用");
 			return;
@@ -154,30 +153,17 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	}
 
 	@Click
-	public void professionLayout(){
-
-		if(userInfo.identification == null){
-			showToast("请先完善个人信息");
-			return;
-		}
-
-		if(userInfo.submit == 1 || userInfo.verificationResult == 1) return;
-
-
-		if(userInfo.wangYinRenZhengJieGuo != 1){
-			if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
-				showToast("你的网银认证已超最大次数.无法使用");
-				return;
-			}
-		}
-
-		if(userInfo.wangYinRenZhengJieGuo == 1) return;
-
-		com.studentloan.white.mode.activity.ProfessionInfoActivity_.intent(this).
-					flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
+	public void xuexinLayout(){
+		quearyXuexinAuth();
 	}
+
 	@Click
 	public void urgencyContactsLayout(){
+
+		if(null == userInfo.xueXinVeriTime || userInfo.xueXinVeriTime <=0 ){
+			showToast("请完善学信网信息");
+			return;
+		}
 
 		if(userInfo.identification == null){
 			showToast("请先完善个人信息");
@@ -213,13 +199,13 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 			}
 		}
 
-		if(null == userInfo.identification){
-			showToast("请完成个人信息");
+		if(null == userInfo.xueXinVeriTime || userInfo.xueXinVeriTime <=0 ){
+			showToast("请完善学信网信息");
 			return;
 		}
 
-		if(null == userInfo.whiteCollar){
-			showToast("请完成职业信息");
+		if(null == userInfo.identification){
+			showToast("请完成个人信息");
 			return;
 		}
 
@@ -263,14 +249,13 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 				return;
 		}
 
-
-		if(null == userInfo.identification){
-			showToast("请完成个人信息");
+		if(null == userInfo.xueXinVeriTime || userInfo.xueXinVeriTime <=0 ){
+			showToast("请完善学信网信息");
 			return;
 		}
 
-		if(null == userInfo.whiteCollar){
-			showToast("请完成职业信息");
+		if(null == userInfo.identification){
+			showToast("请完成个人信息");
 			return;
 		}
 
@@ -299,13 +284,15 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 
 	@Override
 	public void rightTvClick(TextView tv) {
-		if(null == userInfo.identification){
-			showToast("请完善个人信息");
+
+		if(null == userInfo.xueXinVeriTime || userInfo.xueXinVeriTime <=0 ){
+			showToast("请完善学信网信息");
 			return;
 		}
 
-		if(null == userInfo.whiteCollar || userInfo.wangYinRenZhengJieGuo != 1){
-			showToast("请完善职业信息");
+
+		if(null == userInfo.identification){
+			showToast("请完善个人信息");
 			return;
 		}
 
@@ -472,6 +459,92 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 		});
 	}
 
+	private void xuexinAuth(){
+		MxParam mxParam = new MxParam();
+		mxParam.setUserId(userInfo.account.accountId+"");
+		mxParam.setApiKey(MyContacts.mxApiKey);
+		mxParam.setThemeColor("#26aa28");//主题色（非必传）
+		//mxParam.setAgreementUrl(mainActivity.getSharedPreferValue("agreementUrl"));//自定义协议地址（非必传）
+		mxParam.setAgreementEntryText("同意数据获取协议");    //自定义协议相关说明（非必传）
+		mxParam.setCacheDisable(MxParam.PARAM_COMMON_YES);//不使用缓存（非必传）
+		mxParam.setLoadingViewText("验证过程中不会浪费您任何流量\n请稍等片刻");  //设置导入过程中的自定义提示文案，为居中显示
+		mxParam.setQuitDisable(true); //设置导入过程中，触发返回键或者点击actionbar的返回按钮的时候，不执行魔蝎的默认行为
+
+		//设置title
+		TitleParams titleParams = new TitleParams.Builder()
+				//不设置此方法会默认使用魔蝎的icon
+				//.leftNormalImgResId(R.drawable.ic_launcher)
+				//用于设置selector，表示按下的效果，不设置默认使用leftNormalImgResId()设置的图片
+				.leftPressedImgResId(R.drawable.moxie_client_banner_back_black)
+				//.titleColor(0xff26aa28)
+				.backgroundDrawable(R.drawable.bg_actionbar)
+				.rightNormalImgResId(R.drawable.refresh)
+				.immersedEnable(true)
+				.build();
+
+		mxParam.setTitleParams(titleParams);
+		mxParam.setFunction(MxParam.PARAM_FUNCTION_CHSI);
+		MoxieSDK.getInstance().start(this, mxParam, new MoxieCallBack() {
+			@Override
+			public boolean callback(MoxieContext moxieContext, MoxieCallBackData moxieCallBackData) {
+				if (moxieCallBackData != null) {
+					switch (moxieCallBackData.getCode()) {
+						/**
+						 * 如果用户正在导入魔蝎SDK会出现这个情况，如需获取最终状态请轮询贵方后台接口
+						 * 魔蝎后台会向贵方后台推送Task通知和Bill通知
+						 * Task通知：登录成功/登录失败
+						 * Bill通知：账单通知
+						 */
+						case MxParam.ResultCode.IMPORTING:
+						case MxParam.ResultCode.IMPORT_UNSTART:
+							//showDialog(moxieContext);
+							moxieContext.finish();
+							return true;
+						case MxParam.ResultCode.THIRD_PARTY_SERVER_ERROR:
+							Toast.makeText(PersonalDataActivity.this, "导入失败(平台方服务问题)", Toast.LENGTH_SHORT).show();
+							return true;
+						case MxParam.ResultCode.MOXIE_SERVER_ERROR:
+							Toast.makeText(PersonalDataActivity.this, "导入失败(魔蝎数据服务异常)", Toast.LENGTH_SHORT).show();
+							return true;
+						case MxParam.ResultCode.USER_INPUT_ERROR:
+							Toast.makeText(PersonalDataActivity.this, "导入失败(" + moxieCallBackData.getMessage() + ")", Toast.LENGTH_SHORT).show();
+							moxieContext.finish();
+							return true;
+						case MxParam.ResultCode.IMPORT_FAIL:
+							Toast.makeText(PersonalDataActivity.this, "导入失败", Toast.LENGTH_SHORT).show();
+							moxieContext.finish();
+							return true;
+						case MxParam.ResultCode.IMPORT_SUCCESS:
+							//根据taskType进行对应的处理
+							switch (moxieCallBackData.getTaskType()) {
+								case MxParam.PARAM_FUNCTION_EMAIL:
+									Toast.makeText(PersonalDataActivity.this, "邮箱导入成功", Toast.LENGTH_SHORT).show();
+									break;
+								case MxParam.PARAM_FUNCTION_ONLINEBANK:
+									Toast.makeText(PersonalDataActivity.this, "网银导入成功", Toast.LENGTH_SHORT).show();
+									break;
+								case MxParam.PARAM_FUNCTION_CARRIER:
+									showAuth();
+									quearyOperatorAuth();
+									Toast.makeText(PersonalDataActivity.this, "运营商认证成功", Toast.LENGTH_SHORT).show();
+									break;
+								case MxParam.PARAM_FUNCTION_CHSI:
+									showAuth();
+									quearyXuexinAuth();
+									Toast.makeText(PersonalDataActivity.this, "学信网认证成功", Toast.LENGTH_SHORT).show();
+									break;
+								default:
+
+							}
+							moxieContext.finish();
+							return true;
+					}
+				}
+				return false;
+			}
+		});
+	}
+
 	private void showLoadingDialog(){
 		if(dialog != null && dialog.isShowing()){
 			dialog.dismiss();
@@ -545,6 +618,56 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 
 				}
 			},false);
+	}
+
+	private void quearyXuexinAuth(){
+		String formatUrl = String.format(ServerInterface.PASS_YUNYINGSHANG,userInfo.account.cellphone);
+		requestGet(formatUrl.hashCode(), formatUrl, BooleanResponse.class, new HttpListener<BooleanResponse>() {
+			@Override
+			public void onSucceed(int what, Response<BooleanResponse> response) {
+				if(response.isSucceed() && response.get() != null){
+					if(response.get().result){
+						if(null != dialog && dialog.isShowing()){
+							dialog.dismiss();
+							userInfo.xueXinVeriTime = System.currentTimeMillis();
+							refreshView();
+						}
+					}else{
+
+						int time = 0;
+
+						if(retryCount == 0){
+							time = 10 * 1000;
+						}else if(retryCount == 1){
+							time = 20 * 1000;
+						}else if(retryCount == 2){
+							time = 30 * 1000;
+						}else if(retryCount ==3){
+							time = 45 * 1000;
+						}
+
+						if(retryCount >= 4){
+							return;
+						}
+
+						handler.postDelayed(new Runnable() {
+							@Override
+							public void run() {
+								quearyXuexinAuth();
+							}
+						},time);
+
+						retryCount++;
+
+					}
+				}
+			}
+
+			@Override
+			public void onFailed(int what, Response<BooleanResponse> response) {
+
+			}
+		},false);
 	}
 
 	public void showAuth(){

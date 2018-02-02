@@ -22,7 +22,7 @@ public class UserInfo {
 	public FreeWorkerInfo freeWorker;
 	public EmergencyContactInfo emergencyContact;
 	public MoreInfo moreInfo;
-	public long xueXinVeriTime;
+	public Long xueXinVeriTime;
 	public long wangYinVeriTime;
 	public Long yunYingShangVeriTime;
 	public String headImageUrl;
