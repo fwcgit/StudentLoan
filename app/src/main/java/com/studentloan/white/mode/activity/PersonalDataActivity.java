@@ -158,6 +158,9 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 
 	@Click
 	public void xuexinLayout(){
+
+		if(userInfo.submit == 1 || userInfo.verificationResult == 1) return;
+		if(userInfo.xueXinVeriTime != null && userInfo.xueXinVeriTime > 0 ) return;
 		xuexinAuth();
 	}
 
@@ -184,6 +187,8 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	@Click
 	public void moreInfoLayout(){
 
+		if(userInfo.submit == 1 || userInfo.verificationResult == 1) return;
+
 		if(userInfo.identification == null){
 			if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
 				showToast("你的个人信息已超最大认证次数.无法使用");
@@ -201,7 +206,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 			return;
 		}
 
-		if(null == userInfo.whiteCollar){
+		if(null == userInfo.emergencyContact){
 			showToast("请完成紧急联系人信息");
 			return;
 		}
@@ -244,7 +249,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 			return;
 		}
 
-		if(null == userInfo.whiteCollar){
+		if(null == userInfo.emergencyContact){
 			showToast("请完成紧急联系人信息");
 			return;
 		}
