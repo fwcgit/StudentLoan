@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
@@ -76,6 +78,10 @@ public class MainActivity extends FragmentActivity {
 
 	private long mExitTime;
 
+	@Override
+	public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+	}
+
 	@AfterViews
 	public void initViews(){
 
@@ -104,6 +110,8 @@ public class MainActivity extends FragmentActivity {
 
 		if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
 			requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, SD_WRITE_REQUEST_CODE);
+		}else{
+			MyApplication.getInstance().initBaseDb();
 		}
 
 
@@ -212,7 +220,7 @@ public class MainActivity extends FragmentActivity {
 					Toast.makeText(MainActivity.this, "请允许访问外部存储设备！，再次授权！", Toast.LENGTH_SHORT).show();
 					finish();
 				} else {
-					MyApplication.getInstance().copyDbToSD();
+					MyApplication.getInstance().initBaseDb();
 				}
 			} else {
 				Toast.makeText(MainActivity.this, "请允许访问外部存储设备！，再次授权！", Toast.LENGTH_SHORT).show();

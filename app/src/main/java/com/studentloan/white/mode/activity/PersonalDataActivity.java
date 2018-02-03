@@ -51,7 +51,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	public static final int REQUEST_SERVER_CODE = 0x10002;
 
 	@ViewById
-	TextView rightTv,xuexinComleteTv,contactsComleteTv,operatorComleteTv,moreComleteTv;
+	TextView rightTv,persionInfoComleteTv,xuexinComleteTv,contactsComleteTv,operatorComleteTv,moreComleteTv;
 
 	private  ContactsUtils contactsUtils;
 	private Dialog dialog;
@@ -80,6 +80,10 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	private void refreshView(){
 		if(null !=userInfo.xueXinVeriTime){
 			xuexinComleteTv.setText("已完善");
+		}
+
+		if(null !=userInfo.identification){
+			persionInfoComleteTv.setText("已完善");
 		}
 
 		if(null != userInfo.emergencyContact){

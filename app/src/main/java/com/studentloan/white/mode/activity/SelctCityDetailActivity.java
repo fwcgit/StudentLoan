@@ -41,7 +41,7 @@ public class SelctCityDetailActivity extends BaseActivity implements ILetterView
     ListView listView;
     private Handler handler = new Handler();
 
-    BaseDataDB datadb = new BaseDataDB();
+    BaseDataDB datadb = BaseDataDB.getInstance();
 
     List<AreaModel> pList;
 
@@ -64,9 +64,7 @@ public class SelctCityDetailActivity extends BaseActivity implements ILetterView
 
         letterIndexView.setCallback(this);
 
-
         handlerData();
-
 
         listView.setAdapter(adapter = new SelctCityDetailActivity.MyAdapter());
 
@@ -87,8 +85,6 @@ public class SelctCityDetailActivity extends BaseActivity implements ILetterView
     private void handlerData(){
         new Thread(new Runnable() {
             public void run() {
-
-                datadb.init();
 
                 pList = datadb.queryProvince(code);
 

@@ -18,6 +18,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.studentloan.white.crash.CrashHandler;
+import com.studentloan.white.db.BaseDataDB;
 import com.studentloan.white.net.NoHttpRequest;
 import com.studentloan.white.net.data.UserInfo;
 import com.studentloan.white.utils.SdUtil;
@@ -99,10 +100,7 @@ public class MyApplication extends Application {
 		heightPixels = systemOpt.heightPixels;
 		
 		initImageLoader(this);
-		
-		copyDbToSD();//复制数据库到SD卡
-		
-		
+
 		Thread.setDefaultUncaughtExceptionHandler(new CrashHandler());
 		
 	}
@@ -165,7 +163,16 @@ public class MyApplication extends Application {
 		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);//全局初始化此配置
 	}
-	
+
+	public void initBaseDb(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				copyDbToSD();
+				BaseDataDB.getInstance().init();
+			}
+		}).start();
+	}
 	/***
 	 * 复制数据库到SD卡
 	 */
@@ -212,7 +219,7 @@ public class MyApplication extends Application {
 			}
 		}
 	}
-	
+
 
 	 public void reLogin(){
 

@@ -20,7 +20,12 @@ import java.util.Map;
  *
  */
 public class BaseDataDB {
+	private static BaseDataDB baseDataDB = new BaseDataDB();
+	public static BaseDataDB getInstance(){return baseDataDB;};
+	private BaseDataDB(){}
+
 	private SQLiteDatabase liteDatabase;
+
 	public void init(){
 		if(liteDatabase != null && liteDatabase.isOpen()){
 			liteDatabase.close();

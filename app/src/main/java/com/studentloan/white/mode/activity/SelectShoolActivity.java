@@ -36,8 +36,8 @@ public class SelectShoolActivity extends BaseActivity implements ILetterViewCall
 	@ViewById
 	ListView listView;
 	private Handler handler = new Handler();
-	
-	BaseDataDB datadb = new BaseDataDB();
+
+	BaseDataDB datadb = BaseDataDB.getInstance();
 	
 	List<UniversityModel> pList;
 	
@@ -77,9 +77,7 @@ public class SelectShoolActivity extends BaseActivity implements ILetterViewCall
 	private void handlerData(){
 		new Thread(new Runnable() {
 			public void run() {
-				
-				datadb.init();
-				
+
 				pList = datadb.queryUniversAll();
 				
 				if(pList == null || pList.isEmpty()){

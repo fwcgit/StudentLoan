@@ -37,7 +37,7 @@ public class SelectCityActivity extends BaseActivity implements ILetterViewCallb
 	ListView listView;
 	private Handler handler = new Handler();
 	
-	BaseDataDB datadb = new BaseDataDB();
+	BaseDataDB datadb = BaseDataDB.getInstance();
 	
 	List<AreaModel> pList;
 	
@@ -78,9 +78,7 @@ public class SelectCityActivity extends BaseActivity implements ILetterViewCallb
 	private void handlerData(){
 		new Thread(new Runnable() {
 			public void run() {
-				
-				datadb.init();
-				
+
 				pList = datadb.queryProvinceAll();
 
 				if(null == pList || pList.isEmpty()) return;
