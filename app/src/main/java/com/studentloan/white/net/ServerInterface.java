@@ -133,7 +133,7 @@ public class ServerInterface {
     /****
      * 身份证是否存在
      */
-    public static final String IDCARD_EXIST = "/accounts/app/%s/idcard-exist?platform=android";
+    public static final String IDCARD_EXIST = "/accounts/app/%s/idcard-exist?platform=android&accountId=%s";
 
 	/***
 	 * 借款费用明细
@@ -174,5 +174,9 @@ public class ServerInterface {
 	 * 借款协议(没有借款记录)
 	 */
 	public static final String JIE_KUAN_XIE_YI_TWO = "/borrows/app/%s/jie-kuan-xie-yi?platform=android&jieKuanJinE=%s&jieKuanTianShu=%s";
-	
+
+	/***
+	 * 学信验证是否完成
+	 */
+	public static final String XUEXIN_AUTH = "/accounts/app/%s/pass-xue-xin?platform=android";
 }

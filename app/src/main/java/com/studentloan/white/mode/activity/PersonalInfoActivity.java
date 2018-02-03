@@ -707,7 +707,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	}
 
 	private void isIDCardExist(String id){
-		String formatUrl = String.format(ServerInterface.IDCARD_EXIST,id);
+		String formatUrl = String.format(ServerInterface.IDCARD_EXIST,id,userInfo.account.accountId);
 		requestGet(formatUrl.hashCode(), formatUrl, BooleanResponse.class, new HttpListener<BooleanResponse>() {
 			@Override
 			public void onSucceed(int what, Response<BooleanResponse> response) {

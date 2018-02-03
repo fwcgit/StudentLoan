@@ -51,7 +51,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	public static final int REQUEST_SERVER_CODE = 0x10002;
 
 	@ViewById
-	TextView rightTv,xuexinComleteTv,professionComleteTv,contactsComleteTv,operatorComleteTv,moreComleteTv;
+	TextView rightTv,xuexinComleteTv,contactsComleteTv,operatorComleteTv,moreComleteTv;
 
 	private  ContactsUtils contactsUtils;
 	private Dialog dialog;
@@ -154,7 +154,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 
 	@Click
 	public void xuexinLayout(){
-		quearyXuexinAuth();
+		xuexinAuth();
 	}
 
 	@Click
@@ -167,11 +167,6 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 
 		if(userInfo.identification == null){
 			showToast("请先完善个人信息");
-			return;
-		}
-
-		if(userInfo.whiteCollar == null || userInfo.wangYinRenZhengJieGuo != 1){
-			showToast("请先完善职业信息");
 			return;
 		}
 
@@ -188,13 +183,6 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 		if(userInfo.identification == null){
 			if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
 				showToast("你的个人信息已超最大认证次数.无法使用");
-				return;
-			}
-		}
-
-		if(userInfo.wangYinRenZhengJieGuo != 1){
-			if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
-				showToast("你的网银认证已超最大次数.无法使用");
 				return;
 			}
 		}
@@ -232,13 +220,6 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 		if(userInfo.identification == null){
 			if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
 				showToast("你的个人信息已超最大认证次数.无法使用");
-				return;
-			}
-		}
-
-		if(userInfo.wangYinRenZhengJieGuo != 1){
-			if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
-				showToast("你的网银认证已超最大次数.无法使用");
 				return;
 			}
 		}
@@ -621,7 +602,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 	}
 
 	private void quearyXuexinAuth(){
-		String formatUrl = String.format(ServerInterface.PASS_YUNYINGSHANG,userInfo.account.cellphone);
+		String formatUrl = String.format(ServerInterface.XUEXIN_AUTH,userInfo.account.cellphone);
 		requestGet(formatUrl.hashCode(), formatUrl, BooleanResponse.class, new HttpListener<BooleanResponse>() {
 			@Override
 			public void onSucceed(int what, Response<BooleanResponse> response) {

@@ -48,7 +48,7 @@ import org.androidannotations.annotations.ViewById;
  */
 @SuppressLint("NewApi")
 @EActivity(R.layout.activity_main)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
 	private static final int SD_WRITE_REQUEST_CODE = 0X212;
 	private static final int CAMERA_PERMISSION_REQUEST_CODE = 0X211;

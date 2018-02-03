@@ -71,14 +71,6 @@ public class HomeFragment extends BaseFramgent {
 								}
 							}
 
-							if(userInfo.wangYinRenZhengJieGuo != 1){
-								if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
-									Toast.makeText(getActivity(),"你的网银认证已超最大次数.无法使用",Toast.LENGTH_SHORT).show();
-
-									return false;
-								}
-							}
-
 							int dayTime = 24 * 60 * 60 * 1000;
 
 							if(null == userInfo.yunYingShangVeriTime || (userInfo.serverTime - userInfo.yunYingShangVeriTime)/dayTime > 60  ){
@@ -125,14 +117,6 @@ public class HomeFragment extends BaseFramgent {
 				if(userInfo.identification == null){
 					if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
 						Toast.makeText(getActivity(),"你的个人信息已超最大认证次数.无法使用",Toast.LENGTH_SHORT).show();
-						return;
-					}
-				}
-
-				if(userInfo.wangYinRenZhengJieGuo != 1){
-					if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
-						Toast.makeText(getActivity(),"你的网银认证已超最大次数.无法使用",Toast.LENGTH_SHORT).show();
-
 						return;
 					}
 				}
