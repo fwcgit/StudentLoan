@@ -82,7 +82,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	@ViewById
 	View eduBkgLayout,cityLayout;
 
-	boolean isIDSdkAuth,isFaceSdkAuth,idCardExist,isIDCardValid;
+	boolean isIDSdkAuth,isFaceSdkAuth,idCardExist,isIDCardValid,xuexinNotIdCard;
 
 	String delta;
 
@@ -184,13 +184,18 @@ public class PersonalInfoActivity extends BaseActivity {
 			return;
 		}
 
+		if(TextUtils.isEmpty(idEt.getText().toString())){
+			showToast("请先认证身份证！");
+			return;
+		}
+
 		if(idCardExist){
 			showToast("身份证已经存在！");
 			return;
 		}
 
-		if(TextUtils.isEmpty(idEt.getText().toString())){
-			showToast("请先认证身份证！");
+		if(xuexinNotIdCard){
+			showToast("学信网信息与身份证信息不一致！");
 			return;
 		}
 
@@ -713,6 +718,18 @@ public class PersonalInfoActivity extends BaseActivity {
 			public void onSucceed(int what, Response<BooleanResponse> response) {
 					if(response.isSucceed() && response.get() != null){
 						idCardExist = response.get().result;
+						xuexinNotIdCard = false;
+					}else{
+
+						if(response.get().prompt){
+							if(!response.get().errorCode.equals("0")){
+								String msg = response.get().errorMsg;
+								if(msg.contains("学信")){
+									xuexinNotIdCard = true;
+								}
+							}
+						}
+
 					}
 			}
 
