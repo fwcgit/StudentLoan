@@ -38,7 +38,6 @@ public class ForgetPasswordActivity extends BaseActivity {
 
 		setPassHint();
 
-		getUserInfo();
 	}
 
 	private void setPassHint(){
@@ -112,7 +111,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 
         pwd = MD5.md5(pwd);
 
-		String urlFormat = String.format(ServerInterface.RESET_PWD,userInfo.account.cellphone,smsCode,pwd);
+		String urlFormat = String.format(ServerInterface.RESET_PWD,phone,smsCode,pwd);
 		
 		requestPut(urlFormat.hashCode(), null,urlFormat, BooleanResponse.class, new HttpListener<BooleanResponse>(){
 
