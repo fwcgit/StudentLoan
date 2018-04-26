@@ -179,4 +179,14 @@ public class ServerInterface {
 	 * 学信验证是否完成
 	 */
 	public static final String XUEXIN_AUTH = "/accounts/app/%s/pass-xue-xin?platform=android";
+
+	/***
+	 * 租赁
+	 */
+	public static final String ZUPING = "/borrows/app/%S/borrows?platform=android&jine=%s&tianshu=%s";
+
+	/***
+	 * 续租流水号
+	 */
+	public static final String XUZHU_LIUSHUI = "/borrows/app/%s/xu-zu-liu-shui-hao?platform=android";
 }

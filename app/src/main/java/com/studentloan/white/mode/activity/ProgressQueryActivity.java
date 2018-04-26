@@ -151,7 +151,7 @@ public class ProgressQueryActivity extends BaseActivity {
 							step2Tv.setBackgroundResource(R.drawable.shape_circle_bg);
 							step2Line.setBackgroundResource(R.color.bg);
 
-							step3DetailTv.setText("放款失败");
+							step3DetailTv.setText("租赁失败");
 							step3DetailTv.setTextColor(ContextCompat.getColor(ProgressQueryActivity.this, R.color.bg));
 							step3Tv.setBackgroundResource(R.drawable.shape_circle_bg);
 						} else if (borrow.jieKuanZhuangTai == 0) {
@@ -194,7 +194,7 @@ public class ProgressQueryActivity extends BaseActivity {
 							step2Tv.setBackgroundResource(R.drawable.shape_circle_bg);
 							step2Line.setBackgroundResource(R.color.bg);
 
-							step3DetailTv.setText("放款成功");
+							step3DetailTv.setText("租赁成功");
 							step3DetailTv.setTextColor(ContextCompat.getColor(ProgressQueryActivity.this, R.color.bg));
 							step3Tv.setBackgroundResource(R.drawable.shape_circle_bg);
 						}

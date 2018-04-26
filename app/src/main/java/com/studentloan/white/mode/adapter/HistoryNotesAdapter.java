@@ -62,19 +62,19 @@ public class HistoryNotesAdapter extends BaseAdapter {
 		Borrow borrow = list.get(position);
 
 		h.hyPriceTv.setText(borrow.huanKuanJinE+" 元");
-		h.jkPriceTv.setText("借款金额："+borrow.jieKuanJinE+" 元");
-		h.jkDateTv.setText("借款日期："+ ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi),"yyyy年MM月dd日"));
+		h.jkPriceTv.setText("租赁金额："+borrow.jieKuanJinE+" 元");
+		h.jkDateTv.setText("租赁日期："+ ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi),"yyyy年MM月dd日"));
 
 		h.sjhkDateTv.setVisibility(View.GONE);
 		h.hkDateTv.setVisibility(View.VISIBLE);
 
 		if(borrow.huanKuanDeadline != null){
-			h.hkDateTv.setText("应还款日期："+ConvertUtils.dateTimeToStr(new Date(borrow.huanKuanDeadline),"yyyy年MM月dd日"));
+			h.hkDateTv.setText("回购日期："+ConvertUtils.dateTimeToStr(new Date(borrow.huanKuanDeadline),"yyyy年MM月dd日"));
 		}
 
 		if(borrow.jieKuanZhuangTai < 0){
 
-			h.statusTv.setText("借款失败");
+			h.statusTv.setText("租赁失败");
 			h.hkDateTv.setVisibility(View.GONE);
 			h.sjhkDateTv.setVisibility(View.GONE);
 			h.statusTv.setTextColor(0xffff0000);
@@ -87,15 +87,15 @@ public class HistoryNotesAdapter extends BaseAdapter {
 
 		}else if(borrow.jieKuanZhuangTai == 2){
 			h.hyPriceTv.setText(borrow.yingHuanKuanJinE+" 元");
-			h.statusTv.setText("立即还款>");
+			h.statusTv.setText("立即回购>");
 			h.statusTv.setTextColor(0xff27aa29);
 
 		}else if(borrow.jieKuanZhuangTai == 3){
 			//h.hyPriceTv.setText(borrow.+" 元");
-			h.statusTv.setText("已还清");
+			h.statusTv.setText("已回购");
 			h.statusTv.setTextColor(0xffa2a2a2);
 			h.sjhkDateTv.setVisibility(View.VISIBLE);
-			h.sjhkDateTv.setText("实际还款日期："+ConvertUtils.dateTimeToStr(new Date(borrow.huanKuanRiQi),"yyyy年MM月dd日"));
+			h.sjhkDateTv.setText("实际回购日期："+ConvertUtils.dateTimeToStr(new Date(borrow.huanKuanRiQi),"yyyy年MM月dd日"));
 
 		}
 

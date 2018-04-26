@@ -58,7 +58,37 @@ public class DialogUtils {
 		dialog.setContentView(resLayout);
 		return dialog;
 	}
-	
+
+	public void showSelectHetong(Context ctx,final DialogCallback callback){
+		final Dialog dialog = createDialog(ctx, R.layout.dialog_select_hetong_layout);
+		dialog.setCancelable(true);
+		dialog.setCanceledOnTouchOutside(true);
+
+		dialog.findViewById(R.id.mmBtn).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				if(callback != null){
+					callback.hetong(1);
+				}
+			}
+		});
+
+		dialog.findViewById(R.id.zpBtn).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				if(callback != null){
+					callback.hetong(2);
+				}
+			}
+		});
+
+		dialog.show();
+	}
+
 	public void showSelectPicture(Context ctx,final DialogCallback callback,int res){
 		final Dialog dialog = createDialog(ctx, R.layout.dialog_select_picture_layout);
 		dialog.setCancelable(true);
@@ -268,7 +298,6 @@ public class DialogUtils {
 		((TextView)dialog.findViewById(R.id.jiekuanCostTv)).setText(jieKuanFeiYong.feiYong+"元");
 		((TextView)dialog.findViewById(R.id.daozhangEtv)).setText(jieKuanFeiYong.daoZhangJinE+"元");
 		((TextView)dialog.findViewById(R.id.jiekuanDaysTv)).setText(jieKuanFeiYong.tianShu+"天");
-		((TextView)dialog.findViewById(R.id.lixiTv)).setText(jieKuanFeiYong.liXi+"元");
 		((TextView)dialog.findViewById(R.id.yinhuanEtv)).setText(jieKuanFeiYong.yingHuanJinE+"元");
 
 		TextView decTv = (TextView) dialog.findViewById(R.id.decTv);
@@ -288,7 +317,7 @@ public class DialogUtils {
 						jieKuanFeiYong.tianShu);
 
 				com.studentloan.white.mode.activity.WebViewActivity_.intent(ctx).
-						local(false).title("借款协议").url(MyContacts.BASE_URL+formatUrl).start();
+						local(false).title("租赁协议").url(MyContacts.BASE_URL+formatUrl).start();
 
 			}
 		}), dec.indexOf("《"), dec.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

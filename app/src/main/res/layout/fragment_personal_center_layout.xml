@@ -39,6 +39,7 @@
                 android:layout_height="80dp"
                 android:minWidth="160dp"
                 android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="6dp"
                 android:orientation="vertical">
 
@@ -68,6 +69,7 @@
                     android:drawableEnd="@drawable/icon_y_v"
                     android:drawablePadding="6dp"
                     android:gravity="center_vertical"
+                    android:visibility="gone"
                     android:textSize="16sp"/>
             </LinearLayout>
 
@@ -164,7 +166,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="借款记录"
+                android:text="租赁记录"
                 android:textColor="#5d5d5d"
                 android:textSize="15sp"/>
 

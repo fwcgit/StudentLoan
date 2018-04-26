@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:fitsSystemWindows="true"
+    >
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout"/>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleLayout"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/comm_margin"
+        android:paddingRight="@dimen/comm_margin"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备名称"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:id="@+id/deviceNameTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="小米"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="#efefef"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="系统版本号"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:id="@+id/systemVersionTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="4.0.1"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="#efefef"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备型号"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:id="@+id/phoneTypeTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="小米6"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="#efefef"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="唯一标识符"
+                android:textColor="#666666"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:id="@+id/imeiTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="right"
+                android:text="91374917947193"
+                android:textColor="#aaaaaa"
+                android:textSize="16dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/layout1"
+        android:layout_marginTop="12dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/comm_margin"
+        android:paddingRight="@dimen/comm_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="估值金额"
+            android:textColor="#666666"
+            android:textSize="16dp"
+            />
+
+        <EditText
+            android:id="@+id/priceEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="请输入估值金额"
+            android:textColor="#19b519"
+            android:textSize="16dp"
+            android:inputType="number"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元"
+            android:textColor="#19b519"
+            android:textSize="16dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout2"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/select_button_pic_bg"
+        android:text="立即租赁"
+        android:textColor="#fff"
+        android:textSize="16sp"/>
+
+</RelativeLayout>

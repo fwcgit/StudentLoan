@@ -32,5 +32,6 @@ public class Borrow {
     public float overdueFee;
     public float jieKuanFeiYong;
     public Long huanKuanDeadline;
+    public int xuZu;
 
 }

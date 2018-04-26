@@ -21,7 +21,7 @@ public class AlipayRefundActivity extends BaseActivity {
     public void initViews() {
         super.initViews();
 
-        setTitleText("还款");
+        setTitleText("支付宝回购");
 
         getUserInfo();
     }

@@ -14,7 +14,6 @@ import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -272,7 +271,7 @@ public class MainActivity extends FragmentActivity {
 
 
 	public void getHuankuan(final Handler.Callback callback){
-			String formatUrl = String.format(ServerInterface.BORROW_PROGRESS,MyApplication.getInstance().userInfo.account.cellphone,MyApplication.getInstance().userInfo.token);
+		String formatUrl = String.format(ServerInterface.BORROW_PROGRESS,MyApplication.getInstance().userInfo.account.cellphone,MyApplication.getInstance().userInfo.token);
 		NoHttpRequest.getInstance().requestGet(this,formatUrl.hashCode(), formatUrl, BorrowResponse.class, new HttpListener<BorrowResponse>() {
 				@TargetApi(Build.VERSION_CODES.N)
 				@Override

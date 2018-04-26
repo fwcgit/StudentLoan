@@ -176,7 +176,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="申请借款"
+                            android:text="申请租赁"
                             android:textColor="@color/bg"
                             android:textSize="12sp"/>
 
@@ -186,7 +186,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="申请借款"
+                            android:text="申请租赁"
                             android:textColor="@color/bg"
                             android:textSize="12sp"/>
 
@@ -196,7 +196,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="申请借款"
+                            android:text="申请租赁"
                             android:textColor="@color/bg"
                             android:textSize="12sp"/>
                     </LinearLayout>

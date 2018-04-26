@@ -19,7 +19,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="借款确认"
+            android:text="租赁确认"
             android:textColor="#000000"
             android:textSize="18sp"/>
 
@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="借款金额："
+                    android:text="出售金额："
                     android:textColor="#333333"
                     android:textSize="14sp"/>
 
@@ -74,7 +74,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="借款费用："
+                    android:text="租赁期限："
+                    android:textColor="#333333"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/jiekuanDaysTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15天"
+                    android:textColor="#333333"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#cccccc"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="租赁费用："
                     android:textColor="#333333"
                     android:textSize="14sp"/>
 
@@ -136,69 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="借款期限："
-                    android:textColor="#333333"
-                    android:textSize="14sp"/>
-
-                <TextView
-                    android:id="@+id/jiekuanDaysTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="15天"
-                    android:textColor="#333333"
-                    android:textSize="14sp"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.6dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:background="#cccccc"
-
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="利息："
-                    android:textColor="#333333"
-                    android:textSize="14sp"/>
-
-                <TextView
-                    android:id="@+id/lixiTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="300.00元"
-                    android:textColor="#333333"
-                    android:textSize="14sp"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.6dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:background="#cccccc"
-
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="应还金额："
+                    android:text="回购金额："
                     android:textColor="#333333"
                     android:textSize="14sp"/>
 
@@ -260,7 +229,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/button_select_bg"
-                android:text="确认借钱"
+                android:text="出售租赁"
                 android:textColor="#1b90fb"
                 android:textStyle="bold"
                 android:textSize="18sp"/>

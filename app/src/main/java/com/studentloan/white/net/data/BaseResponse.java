@@ -9,4 +9,6 @@ public class BaseResponse {
 	public String errorCode;
 	public String errorMsg;
 	public boolean prompt;
+
+	public String msg;
 }

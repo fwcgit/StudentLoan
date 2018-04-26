@@ -1,11 +1,7 @@
 package com.studentloan.white.utils;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import com.studentloan.white.mode.data.AppSysInfo;
-
 import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -15,6 +11,11 @@ import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+
+import com.studentloan.white.mode.data.AppSysInfo;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /***
  * 系统操作
@@ -68,6 +69,10 @@ public class SystemOpt {
 		appSysInfo.setPhoneType(android.os.Build.MODEL);
 		appSysInfo.setSdkVersion(android.os.Build.VERSION.SDK);
 		appSysInfo.setSystemVersion(android.os.Build.VERSION.RELEASE);
+
+		BluetoothAdapter myDevice = BluetoothAdapter.getDefaultAdapter();
+		String deviceName = myDevice.getName();
+		appSysInfo.setDeviceName(deviceName);
 		
 		if(ContextCompat.checkSelfPermission(ctx, Manifest.permission.READ_PHONE_STATE)== PackageManager.PERMISSION_GRANTED){
 			TelephonyManager tm = (TelephonyManager) ctx.getSystemService(Context.TELEPHONY_SERVICE);     

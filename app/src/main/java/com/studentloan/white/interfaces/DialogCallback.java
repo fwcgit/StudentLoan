@@ -25,5 +25,9 @@ public abstract class DialogCallback {
 	public void cancel(){
 
 	}
+
+	public void hetong(int type){
+
+	}
 	
 }

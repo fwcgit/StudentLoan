@@ -24,47 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="#fff"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="@dimen/comm_margin"
-                    android:layout_marginRight="@dimen/comm_margin"
-                    android:layout_marginTop="12dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="借款金额"
-                        android:textColor="#b6b6b6"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/jkPriceTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#b6b6b6"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.4dp"
-                android:layout_marginLeft="@dimen/comm_margin"
-                android:layout_marginRight="@dimen/comm_margin"
-                android:background="#cccccc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,7 +44,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="借款时间"
+                        android:text="租赁天数"
                         android:textColor="#b6b6b6"
                         android:textSize="16sp" />
 
@@ -124,7 +83,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="借款费用"
+                        android:text="租赁费用"
                         android:textColor="#b6b6b6"
                         android:textSize="16sp" />
 
@@ -202,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="借款申请"
+                        android:text="租赁申请"
                         android:textColor="#b6b6b6"
                         android:textSize="16sp" />
 
@@ -281,7 +240,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="申请借款"
+                                android:text="申请租赁"
                                 android:textColor="@color/bg"
                                 android:textSize="12sp" />
 
@@ -291,7 +250,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="申请借款"
+                                android:text="申请租赁"
                                 android:textColor="@color/bg"
                                 android:textSize="12sp" />
 
@@ -301,7 +260,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="申请借款"
+                                android:text="申请租赁"
                                 android:textColor="@color/bg"
                                 android:textSize="12sp" />
                         </LinearLayout>

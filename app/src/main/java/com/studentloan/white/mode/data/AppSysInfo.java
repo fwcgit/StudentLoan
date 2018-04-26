@@ -9,6 +9,7 @@ public class AppSysInfo {
 	private String deviceId;
 	private String manufacturer;
 	private String phone;
+	private String deviceName;
 
 	public String getSdkVersion() {
 		return sdkVersion;
@@ -72,7 +73,12 @@ public class AppSysInfo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
-	
+
+	public String getDeviceName() {
+		return deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+	}
 }

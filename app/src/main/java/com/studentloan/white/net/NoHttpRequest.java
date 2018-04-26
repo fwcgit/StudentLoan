@@ -94,6 +94,29 @@ public class NoHttpRequest {
 		CallServer.getRequestInstance().add(context, what, request, callback,MyApplication.mainActivity,isShowDialog);
 	}
 
+	public <T>  void requestPostUrl(Context context ,int what,Map<String,String> params,String interfaceUrl,Class<?> cls,HttpListener<T> callback,boolean isShowDialog){
+		LogUtils.logDug("net request start");
+		LogUtils.logDug("request what =  " + what);
+		LogUtils.logDug("request method = POST" );
+		LogUtils.logDug("request url = "+interfaceUrl);
+
+		if(null != params){
+			LogUtils.logDug("request params :");
+
+			for (String key : params.keySet()) {
+				LogUtils.logDug(key + " :" + params.get(key));
+			}
+		}
+
+		Request<T> request = new CustomDataRequest<T>(interfaceUrl,RequestMethod.POST,cls);
+
+		if(null != params){
+			request.add(params);
+		}
+
+		CallServer.getRequestInstance().add(context, what, request, callback,MyApplication.mainActivity,isShowDialog);
+	}
+
 	public <T>  void requestDel(Context context ,int what,Map<String,String> params,String interfaceUrl,Class<?> cls,HttpListener<T> callback,boolean isShowDialog){
 		LogUtils.logDug("net request start");
 		LogUtils.logDug("request what =  " + what);

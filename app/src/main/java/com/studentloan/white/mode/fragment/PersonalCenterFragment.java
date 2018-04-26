@@ -106,7 +106,7 @@ public class PersonalCenterFragment extends BaseFramgent {
 				ImageLoader.getInstance().displayImage(MyContacts.BASE_URL+userInfo.headImageUrl, headImg);
 			}
 
-			getBorrowLimits();
+//			getBorrowLimits();
 		}
 
 	}
