@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.fuiou.pay.FyPay;
@@ -52,12 +54,17 @@ public class HuiGouActivity extends BaseActivity {
 
     private SimpleDateFormat dateFormat = null;
 
+    @ViewById
+    public Button xuZuBtn;
+
     boolean isXuzu = false;
 
     @Override
     @AfterViews
     public void initViews() {
         super.initViews();
+
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         getUserInfo();
 
@@ -66,7 +73,7 @@ public class HuiGouActivity extends BaseActivity {
         FyPay.setDev(true);//此代码是配置jar包为环境配置，true是生产   false测试
         FyPay.init(this);
 
-        //getLoanInfo();
+        getLoanInfo();
     }
     @Click
     public void xuZuBtn(){
@@ -105,7 +112,7 @@ public class HuiGouActivity extends BaseActivity {
         params.put("type",type );
         params.put("idcard",idcard);
 
-        requestPostUrl(formatUrl.hashCode(),params, formatUrl, StringResponse.class, new HttpListener<StringResponse>() {
+        requestPostUrl(formatUrl.hashCode(),params, formatUrl,null,StringResponse.class, new HttpListener<StringResponse>() {
             @Override
             public void onSucceed(int what, Response<StringResponse> response) {
                 if(response.isSucceed() && response.get() != null){
@@ -135,11 +142,17 @@ public class HuiGouActivity extends BaseActivity {
                 if(response.isSucceed() && response.get() != null){
                     if(response.get().result != null){
                         br = response.get().result;
-                        jkPriceTv.setText(br.jieKuanJinE+"元");
+                        jkPriceTv.setText(br.yingHuanKuanJinE+"");
                         jkTimeTv.setText(br.jieKuanTianShu+"天");
                         repartDatTv.setText(dateFormat.format(new Date(br.huanKuanDeadline)));
                         yuqiDaysTv.setText(br.overdueDays+"天");
                         xuzuTv.setText((br.xuZu*8)+"天");
+
+                        if(br.xuZu < 2){
+                            xuZuBtn.setVisibility(View.VISIBLE);
+                        }else{
+                            xuZuBtn.setEnabled(false);
+                        }
 
                     }else{
                         finish();
@@ -249,7 +262,7 @@ public class HuiGouActivity extends BaseActivity {
         String amount = ((int)((br.yingHuanKuanJinE-jl) * 100d))+"";
 
         if(isXuzu){
-            amount = ((int)((br.yingHuanKuanJinE*0.01*8f-jl) * 100d))+"";
+            amount = ((int)((br.jieKuanJinE*0.01*8f-jl) * 100d))+"";
         }
 
 

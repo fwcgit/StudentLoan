@@ -1,6 +1,7 @@
 package com.studentloan.white.mode.activity;
 
 import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -19,7 +20,7 @@ public class WebViewActivity extends BaseActivity {
 	WebView webView;
 	
 	@Extra
-	String title,url;
+	String title,url,html;
 	
 	@Extra
 	String fromDate,toDate,dayNum;
@@ -44,11 +45,17 @@ public class WebViewActivity extends BaseActivity {
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.setWebViewClient(new WebClient());
 		webView.addJavascriptInterface(new JavaScriptInterface(), "load");
-		
+
+
 		if(local){
 			webView.loadUrl("file:///android_asset/"+url);
 		}else{
-			webView.loadUrl(url);
+			if(!TextUtils.isEmpty(url)){
+				webView.loadUrl(url);
+			}else if(!TextUtils.isEmpty(html)){
+				webView.loadData(html, "text/html; charset=UTF-8", null);//这种写法可以正确解码
+			}
+
 		}
 		
 	}

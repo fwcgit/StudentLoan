@@ -24,13 +24,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.studentloan.white.MyApplication;
-import com.studentloan.white.MyContacts;
 import com.studentloan.white.R;
 import com.studentloan.white.interfaces.DialogCallback;
 import com.studentloan.white.mode.view.TouchDelView;
 import com.studentloan.white.mode.view.wheel.AbstractWheelTextAdapter;
 import com.studentloan.white.mode.view.wheel.WheelView;
-import com.studentloan.white.net.ServerInterface;
 import com.studentloan.white.net.data.BankCard;
 import com.studentloan.white.net.data.JieKuanFeiYong;
 
@@ -83,6 +81,14 @@ public class DialogUtils {
 				if(callback != null){
 					callback.hetong(2);
 				}
+			}
+		});
+
+		dialog.findViewById(R.id.cancelBtn).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
 			}
 		});
 
@@ -311,13 +317,9 @@ public class DialogUtils {
 			@Override
 			public void onClick(View v) {
 
-				String formatUrl = String.format(ServerInterface.JIE_KUAN_XIE_YI_TWO,
-						MyApplication.getInstance().userInfo.account.cellphone,
-						jieKuanFeiYong.jinE,
-						jieKuanFeiYong.tianShu);
-
-				com.studentloan.white.mode.activity.WebViewActivity_.intent(ctx).
-						local(false).title("租赁协议").url(MyContacts.BASE_URL+formatUrl).start();
+				if(null != callback){
+					callback.xieyi();
+				}
 
 			}
 		}), dec.indexOf("《"), dec.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

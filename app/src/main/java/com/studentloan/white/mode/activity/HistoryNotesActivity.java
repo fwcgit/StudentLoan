@@ -43,7 +43,7 @@ public class HistoryNotesActivity extends BaseActivity implements OnRefreshFoote
 	public void initViews() {
 		super.initViews();
 		
-		setTitleText("借款记录");
+		setTitleText("租赁记录");
 
 		getUserInfo();
 
@@ -60,7 +60,7 @@ public class HistoryNotesActivity extends BaseActivity implements OnRefreshFoote
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 				Borrow borrow = (Borrow) adapter.getItem(i);
 				if(borrow.jieKuanZhuangTai == 2){
-					com.studentloan.white.mode.activity.RefundActivity_.intent(HistoryNotesActivity.this).
+					com.studentloan.white.mode.activity.HuiGouActivity_.intent(HistoryNotesActivity.this).
 							flags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK).start();
 				}
 			}

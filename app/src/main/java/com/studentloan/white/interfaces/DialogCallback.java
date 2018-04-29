@@ -29,5 +29,9 @@ public abstract class DialogCallback {
 	public void hetong(int type){
 
 	}
+
+	public void xieyi(){
+
+	}
 	
 }

@@ -183,7 +183,7 @@ public class ServerInterface {
 	/***
 	 * 租赁
 	 */
-	public static final String ZUPING = "/borrows/app/%S/borrows?platform=android&jine=%s&tianshu=%s";
+	public static final String ZUPING = "/borrows/app/%S/borrows?platform=android&jine=%s&tianshu=%s&token=%s";
 
 	/***
 	 * 续租流水号

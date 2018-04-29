@@ -20,6 +20,7 @@ import android.widget.Scroller;
 import com.studentloan.white.interfaces.OnRefreshFooterListener;
 import com.studentloan.white.interfaces.OnRefreshHeadListener;
 
+
 /***
  * 
  * @author fu
@@ -39,8 +40,8 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 	private OnRefreshFooterListener onRefreshFooterListener;
 
 	// --------------- 内部放的控件---------------//
-	private OverWriteScrollView overWriteScrollView;// ScrollView
-	private ExpandableListView expandableListView;// 扩展LISTVIEW
+	private OverWriteScrollView overWriteScrollView;
+	private ExpandableListView expandableListView;
 	private ListView listView;
 	private WebView webView;
 	private RecyclerView recyclerView;
@@ -198,6 +199,8 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 				listView = (ListView) child;
 			} else if (child instanceof WebView) {
 				webView = (WebView) child;
+			}else if(child instanceof  RecyclerView){
+				recyclerView = (RecyclerView) child;
 			}
 			if (child instanceof ViewGroup && ((ViewGroup) child).getChildCount() > 0) {
 				findView((ViewGroup) child);
@@ -598,17 +601,17 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 	 * @return false
 	 */
 	private boolean recyclerViewScrollBottom(){
-		RecyclerView.LayoutManager lm = recyclerView.getLayoutManager();
-		if(lm instanceof LinearLayoutManager){
-
-			LinearLayoutManager layoutManager = (LinearLayoutManager) lm;
-
-			return layoutManager.getItemCount() == 0 ? true : layoutManager.findLastVisibleItemPosition() == layoutManager.getItemCount() -1
-					&& layoutManager.getChildAt(layoutManager.getItemCount()-1).getBottom() <= recyclerView.getHeight();
-
-		}else if(lm instanceof GridLayoutManager){
-
-		}
+//		RecyclerView.LayoutManager lm = recyclerView.getLayoutManager();
+//		if(lm instanceof LinearLayoutManager){
+//
+//			LinearLayoutManager layoutManager = (LinearLayoutManager) lm;
+//
+//			return layoutManager.getItemCount() == 0 ? true : layoutManager.findLastVisibleItemPosition() == layoutManager.getItemCount() -1
+//					&& layoutManager.getChildAt(layoutManager.getItemCount()-1).getBottom() <= recyclerView.getHeight();
+//
+//		}else if(lm instanceof GridLayoutManager){
+//
+//		}
 
 		return false;
 	}
@@ -618,12 +621,21 @@ public class PullUpView extends LinearLayout implements com.studentloan.white.in
 	 * @return false
 	 */
 	private boolean recyclerViewScrollTop(){
+
 		RecyclerView.LayoutManager lm = recyclerView.getLayoutManager();
 		if(lm instanceof LinearLayoutManager){
 
 			LinearLayoutManager layoutManager = (LinearLayoutManager) lm;
+			if(layoutManager.getItemCount() == 0){
+				return true;
+			}else if(layoutManager.getChildAt(0).getTop() < 0){
+				return false;
+			}else if(layoutManager.getChildAt(0).getTop() > 0){
+				return layoutManager.findFirstVisibleItemPosition() == 0 ;
 
-			return layoutManager.findFirstVisibleItemPosition() == 0 && layoutManager.getItemCount() == 0 ? true : layoutManager.getChildAt(0).getTop() == 0;
+			}else{
+				return layoutManager.findFirstVisibleItemPosition() == 0 && layoutManager.getItemCount() == 0 ? true : layoutManager.getChildAt(0).getTop() == 0;
+			}
 
 		}else if(lm instanceof GridLayoutManager){
 

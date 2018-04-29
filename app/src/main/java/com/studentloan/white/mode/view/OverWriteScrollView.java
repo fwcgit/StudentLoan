@@ -1,6 +1,5 @@
 package com.studentloan.white.mode.view;
 
-import com.studentloan.white.interfaces.OnLayoutSizeChange;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+
+import com.studentloan.white.interfaces.OnLayoutSizeChange;
 
 @SuppressLint("NewApi")
 public class OverWriteScrollView extends ScrollView {

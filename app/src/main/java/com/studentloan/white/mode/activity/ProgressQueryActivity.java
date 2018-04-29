@@ -26,7 +26,7 @@ public class ProgressQueryActivity extends BaseActivity {
 	@ViewById
 	View step1Line, step2Line, mStep1Line, mStep2Line;
 	@ViewById
-	TextView jkPriceTv, jkDayTv, costPriceTv, dateTv;
+	TextView jkDayTv, costPriceTv, dateTv;
 	@ViewById
 	TextView shTypeTv, shTimeTv;
 	@ViewById
@@ -135,9 +135,9 @@ public class ProgressQueryActivity extends BaseActivity {
 						fkLayout.setVisibility(View.VISIBLE);
 						materialLayout.setVisibility(View.GONE);
 
-						jkPriceTv.setText(borrow.jieKuanJinE + "元");
+//						jkPriceTv.setText(borrow.jieKuanJinE + "元");
 						jkDayTv.setText(borrow.jieKuanTianShu + "天");
-						costPriceTv.setText(borrow.jieKuanFeiYong + "元");
+						costPriceTv.setText((borrow.jieKuanJinE*0.01f *borrow.jieKuanTianShu) + "元");
 						dateTv.setText(ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi), "yyyy年MM月dd日"));
 
 						if (borrow.jieKuanZhuangTai < 0) {

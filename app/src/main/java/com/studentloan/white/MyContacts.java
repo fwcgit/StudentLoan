@@ -6,12 +6,12 @@ package com.studentloan.white;
  * @create date 2016.05.11
  */
 public class MyContacts {
-	public static boolean showLog = false;//是否显示日志
+	public static boolean showLog = true;//是否显示日志
 	public static boolean online = false;
 //	public static final String TEST_URL = "http://139.196.104.98:84";
 //	public static final String ON_LINE_URL = "http://139.196.104.98:81";
 
-	public static final String TEST_URL = "http://app.yuhuizichan.com:10000";
+	public static final String TEST_URL = "http://app.yuhuizichan.com:12345";
 	public static final String ON_LINE_URL = "http://192.168.121.200:26000";
 
 	//获取任务状态时使用(合作方申请接入后由魔蝎数据提供)

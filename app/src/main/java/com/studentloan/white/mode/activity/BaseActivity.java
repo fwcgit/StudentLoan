@@ -130,8 +130,8 @@ public class BaseActivity extends Activity implements TitleBar.TitleCallBack{
 		NoHttpRequest.getInstance().requestPost(this,what, params, interfaceUrl,cls, callback,isShowDialog);
 	}
 
-	public <T> void requestPostUrl(int what,Map<String,String> params,String interfaceUrl,Class<?> cls,HttpListener<T> callback, boolean isShowDialog){
-		NoHttpRequest.getInstance().requestPostUrl(this,what, params, interfaceUrl,cls, callback,isShowDialog);
+	public <T> void requestPostUrl(int what,Map<String,String> params,String body,String interfaceUrl,Class<?> cls,HttpListener<T> callback, boolean isShowDialog){
+		NoHttpRequest.getInstance().requestPostUrl(this,what, params,body, interfaceUrl,cls, callback,isShowDialog);
 	}
 
 	public <T> void requestPut(int what,Map<String,String> params,String interfaceUrl,Class<?> cls,HttpListener<T> callback, boolean isShowDialog){

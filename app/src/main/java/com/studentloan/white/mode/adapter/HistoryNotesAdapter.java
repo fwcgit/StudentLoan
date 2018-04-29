@@ -62,7 +62,7 @@ public class HistoryNotesAdapter extends BaseAdapter {
 		Borrow borrow = list.get(position);
 
 		h.hyPriceTv.setText(borrow.huanKuanJinE+" 元");
-		h.jkPriceTv.setText("租赁金额："+borrow.jieKuanJinE+" 元");
+		h.jkPriceTv.setText("出售金额："+borrow.jieKuanJinE+" 元");
 		h.jkDateTv.setText("租赁日期："+ ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi),"yyyy年MM月dd日"));
 
 		h.sjhkDateTv.setVisibility(View.GONE);
@@ -74,14 +74,14 @@ public class HistoryNotesAdapter extends BaseAdapter {
 
 		if(borrow.jieKuanZhuangTai < 0){
 
-			h.statusTv.setText("租赁失败");
+			h.statusTv.setText("出售失败");
 			h.hkDateTv.setVisibility(View.GONE);
 			h.sjhkDateTv.setVisibility(View.GONE);
 			h.statusTv.setTextColor(0xffff0000);
 
 		}else if(borrow.jieKuanZhuangTai == 0 || borrow.jieKuanZhuangTai == 1){
 
-			h.statusTv.setText("等待放款");
+			h.statusTv.setText("审核中");
 			h.hkDateTv.setVisibility(View.GONE);
 			h.statusTv.setTextColor(0xffa2a2a2);
 

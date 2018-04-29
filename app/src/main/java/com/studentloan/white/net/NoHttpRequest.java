@@ -85,6 +85,8 @@ public class NoHttpRequest {
 			}
 		}
 
+
+
 		Request<T> request = new CustomDataRequest<T>(MyContacts.BASE_URL+interfaceUrl,RequestMethod.POST,cls);
 
 		if(null != params){
@@ -94,7 +96,7 @@ public class NoHttpRequest {
 		CallServer.getRequestInstance().add(context, what, request, callback,MyApplication.mainActivity,isShowDialog);
 	}
 
-	public <T>  void requestPostUrl(Context context ,int what,Map<String,String> params,String interfaceUrl,Class<?> cls,HttpListener<T> callback,boolean isShowDialog){
+	public <T>  void requestPostUrl(Context context ,int what,Map<String,String> params,String bodyData,String interfaceUrl,Class<?> cls,HttpListener<T> callback,boolean isShowDialog){
 		LogUtils.logDug("net request start");
 		LogUtils.logDug("request what =  " + what);
 		LogUtils.logDug("request method = POST" );
@@ -108,10 +110,18 @@ public class NoHttpRequest {
 			}
 		}
 
+		if(null != bodyData){
+			LogUtils.logDug("request bodyData :"+bodyData);
+		}
+		
 		Request<T> request = new CustomDataRequest<T>(interfaceUrl,RequestMethod.POST,cls);
 
 		if(null != params){
 			request.add(params);
+		}
+
+		if(null != bodyData){
+			request.setDefineRequestBodyForJson(bodyData);
 		}
 
 		CallServer.getRequestInstance().add(context, what, request, callback,MyApplication.mainActivity,isShowDialog);

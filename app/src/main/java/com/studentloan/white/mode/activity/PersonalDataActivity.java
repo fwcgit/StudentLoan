@@ -259,7 +259,7 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 			@Override
 			public boolean handleMessage(Message msg) {
 				if(msg.arg1 == 1){
-					showToast("还有未完成的借款!");
+					showToast("还有未完成的租赁!");
 				}else{
 					if(msg.arg1 == 0){
 						operatorAuth();

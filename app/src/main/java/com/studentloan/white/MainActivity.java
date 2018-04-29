@@ -1,6 +1,7 @@
 package com.studentloan.white;
 
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -53,6 +54,7 @@ public class MainActivity extends FragmentActivity {
 
 	private static final int SD_WRITE_REQUEST_CODE = 0X212;
 	private static final int CAMERA_PERMISSION_REQUEST_CODE = 0X211;
+	private static final int READ_PHONE_STATE = 0X213;
 
 	private static final int RESULT_CAMARE_IMAGE = 0x001;
 	private static final int RESULT_PHOTO_IMAGE = 0x002;
@@ -88,6 +90,8 @@ public class MainActivity extends FragmentActivity {
 
 		MyApplication.getInstance().setSystemBar(this);
 
+		SystemOpt.getInstance().init(this);//读取系统信息
+
 		homeFragment = com.studentloan.white.mode.fragment.HomeFragment_.builder().build();
 		personalFragment = com.studentloan.white.mode.fragment.PersonalCenterFragment_.builder().build();
 		moreFragment = com.studentloan.white.mode.fragment.MoreFragment_.builder().build();
@@ -102,6 +106,10 @@ public class MainActivity extends FragmentActivity {
 
 		selectImgs = new ImageView[]{homeImg,persionImg,moreImg};
 
+
+		if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+			requestPermissions(new String[]{android.Manifest.permission.READ_PHONE_STATE}, READ_PHONE_STATE);
+		}
 
 		if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
 			requestPermissions(new String[]{android.Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST_CODE);

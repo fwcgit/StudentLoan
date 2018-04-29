@@ -235,6 +235,7 @@
             android:text="续租8天"
             android:textColor="#fff"
             android:textSize="16sp"
+            android:visibility="invisible"
             />
 
         <Button

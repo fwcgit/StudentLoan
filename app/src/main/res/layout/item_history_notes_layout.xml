@@ -19,8 +19,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/comm_margin"
             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:text="回购金额:"
+                android:textColor="#999999"
+                android:textSize="18dp"/>
 
             <TextView
                 android:id="@+id/hyPriceTv"
@@ -28,6 +36,8 @@
                 android:layout_height="wrap_content"
                 android:text="900.00元"
                 android:textColor="#ffbb40"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
                 android:textSize="18sp"/>
 
 
@@ -56,6 +66,17 @@
             android:layout_marginTop="8dp"
             android:text="借款金额310元"
             android:textColor="#999999"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/feiyongTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:text="借款金额310元"
+            android:textColor="#999999"
+            android:visibility="gone"
             android:textSize="13sp"/>
 
         <TextView

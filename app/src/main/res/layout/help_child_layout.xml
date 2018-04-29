@@ -13,7 +13,7 @@
         android:textColor="#999999"
         android:textSize="12sp"
         android:gravity="center_vertical"
-        android:text="1、申请借款需要哪些认证"
+        android:text="1、申请租赁需要哪些认证"
 
         />
 </LinearLayout>
