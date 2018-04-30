@@ -567,11 +567,9 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 				public void onSucceed(int what, Response<BooleanResponse> response) {
 					if(response.isSucceed() && response.get() != null){
 						if(response.get().result){
-							if(null != dialog && dialog.isShowing()){
-								dialog.dismiss();
-								userInfo.yunYingShangVeriTime = System.currentTimeMillis();
-								refreshView();
-							}
+							hideAuth();
+							userInfo.yunYingShangVeriTime = System.currentTimeMillis();
+							refreshView();
 						}else{
 
 								int time = 0;
@@ -579,14 +577,15 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 								if(retryCount == 0){
 									time = 10 * 1000;
 								}else if(retryCount == 1){
-									time = 20 * 1000;
+									time = 10 * 1000;
 								}else if(retryCount == 2){
-									time = 30 * 1000;
+									time = 10 * 1000;
 								}else if(retryCount ==3){
-									time = 45 * 1000;
+									time = 15 * 1000;
 								}
 
 								if(retryCount >= 4){
+									hideAuth();
 									return;
 								}
 
@@ -600,12 +599,14 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 								retryCount++;
 
 						}
+					}else{
+						hideAuth();
 					}
 				}
 
 				@Override
 				public void onFailed(int what, Response<BooleanResponse> response) {
-
+					hideAuth();
 				}
 			},false);
 	}
@@ -617,11 +618,9 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 			public void onSucceed(int what, Response<BooleanResponse> response) {
 				if(response.isSucceed() && response.get() != null){
 					if(response.get().result){
-						if(null != dialog && dialog.isShowing()){
-							dialog.dismiss();
-							userInfo.xueXinVeriTime = System.currentTimeMillis();
-							refreshView();
-						}
+						hideAuth();
+						userInfo.xueXinVeriTime = System.currentTimeMillis();
+						refreshView();
 					}else{
 
 						int time = 0;
@@ -629,14 +628,15 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 						if(retryCount == 0){
 							time = 10 * 1000;
 						}else if(retryCount == 1){
-							time = 20 * 1000;
+							time = 10 * 1000;
 						}else if(retryCount == 2){
-							time = 30 * 1000;
+							time = 10 * 1000;
 						}else if(retryCount ==3){
-							time = 45 * 1000;
+							time = 15 * 1000;
 						}
 
 						if(retryCount >= 4){
+							hideAuth();
 							return;
 						}
 
@@ -650,12 +650,14 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 						retryCount++;
 
 					}
+				}else{
+					hideAuth();
 				}
 			}
 
 			@Override
 			public void onFailed(int what, Response<BooleanResponse> response) {
-
+				hideAuth();
 			}
 		},false);
 	}
@@ -664,13 +666,18 @@ public class PersonalDataActivity extends BaseActivity implements ContactsUtils.
 		showLoadingDialog();
 	}
 
+	public void hideAuth(){
+		if(dialog != null && dialog.isShowing()){
+			dialog.dismiss();
+		}
+	}
+
+
 	@Override
 	public void handComplate() {
 
 
-		if(null != dialog && dialog.isShowing()){
-			dialog.dismiss();
-		}
+		hideAuth();
 
 		contactsUtils.upContacts();
 
