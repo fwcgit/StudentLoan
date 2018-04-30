@@ -42,7 +42,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="必填,完成所有基础认证即可借款"
+                    android:text="必填,完成所有基础认证即可租赁"
                     android:textColor="#d38f5f"
                     android:textSize="16sp"
                     />

@@ -39,7 +39,10 @@ public class HomeFragment extends BaseFramgent {
 //		com.studentloan.white.mode.activity.ZuPinActivity_.intent(getActivity()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
 //		return;
 
-		if(userInfo.submit != 1 || userInfo.verificationResult != 1){
+		if(userInfo.submit == 1 && userInfo.verificationResult != 1){
+			Toast.makeText(getActivity(),"审核中！",Toast.LENGTH_SHORT).show();
+			return;
+		}else if(userInfo.submit != 1 || userInfo.verificationResult != 1) {
 			Toast.makeText(getActivity(),"请完成个人信息认证！",Toast.LENGTH_SHORT).show();
 			return;
 		}
@@ -100,10 +103,14 @@ public class HomeFragment extends BaseFramgent {
 //		com.studentloan.white.mode.activity.HuiGouActivity_.intent(getActivity()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
 
 
-		if(userInfo.submit != 1 || userInfo.verificationResult != 1){
+		if(userInfo.submit == 1 && userInfo.verificationResult != 1){
+			Toast.makeText(getActivity(),"审核中！",Toast.LENGTH_SHORT).show();
+			return;
+		}else if(userInfo.submit != 1 || userInfo.verificationResult != 1) {
 			Toast.makeText(getActivity(),"请完成个人信息认证！",Toast.LENGTH_SHORT).show();
 			return;
 		}
+
 
 		if(userInfo.submit == 1 && userInfo.verificationResult == 1){
 			if (userInfo.blackList == 1 || userInfo.frozen == 1) {
@@ -116,6 +123,7 @@ public class HomeFragment extends BaseFramgent {
 							Toast.makeText(getActivity(), "账户已被冻结无法使用", Toast.LENGTH_SHORT).show();
 						}
 						return false;
+
 					}
 				});
 			} else {

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/comm_margin"
             android:layout_marginTop="10dp"
-            android:text="还款方式如下:"
+            android:text="回购方式如下:"
             android:textColor="#5d5d5d"
             android:textSize="12sp"/>
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/comm_margin"
             android:layout_marginTop="2dp"
-            android:text="支付宝还款，转账到支付宝账号"
+            android:text="支付宝回购，转账到支付宝账号"
             android:textColor="#5d5d5d"
             android:textSize="12sp"/>
 

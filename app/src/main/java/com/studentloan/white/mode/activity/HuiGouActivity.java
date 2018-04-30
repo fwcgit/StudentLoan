@@ -112,17 +112,22 @@ public class HuiGouActivity extends BaseActivity {
         params.put("type",type );
         params.put("idcard",idcard);
 
-        requestPostUrl(formatUrl.hashCode(),params, formatUrl,null,StringResponse.class, new HttpListener<StringResponse>() {
+        requestPostUrl(formatUrl.hashCode(),params, null,formatUrl,StringResponse.class, new HttpListener<StringResponse>() {
             @Override
             public void onSucceed(int what, Response<StringResponse> response) {
                 if(response.isSucceed() && response.get() != null){
-                    if(!TextUtils.isEmpty(response.get().data)){
-                        Intent intent = new Intent();
-                        intent.setAction("android.intent.action.VIEW");
-                        Uri content_url = Uri.parse(response.get().data);
-                        intent.setData(content_url);
-                        startActivity(intent);
+                    if(response.get().errorCode.equals("0")){
+                        if(!TextUtils.isEmpty(response.get().data)){
+                            Intent intent = new Intent();
+                            intent.setAction("android.intent.action.VIEW");
+                            Uri content_url = Uri.parse(response.get().data);
+                            intent.setData(content_url);
+                            startActivity(intent);
+                        }
+                    }else{
+                        showToast(response.get().msg);
                     }
+
                 }
             }
 
@@ -211,7 +216,7 @@ public class HuiGouActivity extends BaseActivity {
     }
 
     private void getXUZHUNumber(final BankCard bankCard){
-        String formatUrl = String.format(ServerInterface.XUZHU_LIUSHUI,br.borrowId);
+        String formatUrl = String.format(ServerInterface.XUZHU_LIUSHUI,br.borrowId,userInfo.token);
         requestPost(formatUrl.hashCode(),null, formatUrl, StringResponse.class, new HttpListener<StringResponse>() {
             @Override
             public void onSucceed(int what, Response<StringResponse> response) {

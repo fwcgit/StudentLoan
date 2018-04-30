@@ -188,5 +188,5 @@ public class ServerInterface {
 	/***
 	 * 续租流水号
 	 */
-	public static final String XUZHU_LIUSHUI = "/borrows/app/%s/xu-zu-liu-shui-hao?platform=android";
+	public static final String XUZHU_LIUSHUI = "/borrows/app/%s/xu-zu-liu-shui-hao?platform=android&token=%s";
 }

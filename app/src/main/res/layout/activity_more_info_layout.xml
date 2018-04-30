@@ -184,7 +184,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:paddingRight="8dp"
-        android:text="温馨提示：为保证借款顺利，请务必填写真实信息！"
+        android:text="温馨提示：为了保证你的出售租赁顺利.请务必填写真实信息！"
         android:textColor="#5e5e5e"
         android:textSize="12sp"
         />

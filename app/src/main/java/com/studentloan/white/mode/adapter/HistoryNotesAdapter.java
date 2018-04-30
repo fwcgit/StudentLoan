@@ -47,6 +47,7 @@ public class HistoryNotesAdapter extends BaseAdapter {
 		if(convertView == null){
 			h = new Holder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_history_notes_layout, null);
+			h.huigouhintTv = (TextView)convertView.findViewById(R.id.huigouhintTv);
 			h.hyPriceTv = (TextView) convertView.findViewById(R.id.hyPriceTv);
 			h.jkPriceTv = (TextView) convertView.findViewById(R.id.jkPriceTv);
 			h.jkDateTv = (TextView) convertView.findViewById(R.id.jkDateTv);
@@ -66,6 +67,7 @@ public class HistoryNotesAdapter extends BaseAdapter {
 		h.jkDateTv.setText("租赁日期："+ ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi),"yyyy年MM月dd日"));
 
 		h.sjhkDateTv.setVisibility(View.GONE);
+		h.huigouhintTv.setVisibility(View.GONE);
 		h.hkDateTv.setVisibility(View.VISIBLE);
 
 		if(borrow.huanKuanDeadline != null){
@@ -83,9 +85,10 @@ public class HistoryNotesAdapter extends BaseAdapter {
 
 			h.statusTv.setText("审核中");
 			h.hkDateTv.setVisibility(View.GONE);
-			h.statusTv.setTextColor(0xffa2a2a2);
+			h.statusTv.setTextColor(0xffff0000);
 
 		}else if(borrow.jieKuanZhuangTai == 2){
+			h.huigouhintTv.setVisibility(View.VISIBLE);
 			h.hyPriceTv.setText(borrow.yingHuanKuanJinE+" 元");
 			h.statusTv.setText("立即回购>");
 			h.statusTv.setTextColor(0xff27aa29);
@@ -95,6 +98,7 @@ public class HistoryNotesAdapter extends BaseAdapter {
 			h.statusTv.setText("已回购");
 			h.statusTv.setTextColor(0xffa2a2a2);
 			h.sjhkDateTv.setVisibility(View.VISIBLE);
+			h.huigouhintTv.setVisibility(View.VISIBLE);
 			h.sjhkDateTv.setText("实际回购日期："+ConvertUtils.dateTimeToStr(new Date(borrow.huanKuanRiQi),"yyyy年MM月dd日"));
 
 		}
@@ -103,7 +107,7 @@ public class HistoryNotesAdapter extends BaseAdapter {
 	}
 	
 	public class Holder{
-		TextView hyPriceTv,jkPriceTv,jkDateTv,hkDateTv,sjhkDateTv,statusTv;
+		TextView hyPriceTv,jkPriceTv,jkDateTv,hkDateTv,sjhkDateTv,statusTv,huigouhintTv;
 	}
 	
 	public void setHistoryList(List<Borrow> list,boolean ref) {

@@ -187,7 +187,7 @@
                 android:textSize="12sp"
                 android:layout_marginTop="12dp"
                 android:textColor="#666666"
-                android:text="请仔细阅读本借据信息.点击确认借钱表示你同意遵守《合同及相关协议》"
+                android:text="请仔细阅读本租赁合同.点击确认出售租赁表示你同意遵守《合同及相关协议》"
                 />
 
         </LinearLayout>
