@@ -138,8 +138,6 @@ public class HomeFragment extends BaseFramgent {
 			}
 		}
 
-
-
 	}
 
 	public void getHuankuanData() {
