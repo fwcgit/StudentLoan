@@ -11,6 +11,11 @@ android {
         exclude 'androidannotations-api.properties'
     }
 
+    packagingOptions {
+        exclude 'lib/mips64/*.so'
+        exclude 'lib/mips/*.so'
+    }
+
     defaultConfig {
         applicationId "com.studentloan.white"
         minSdkVersion 19
