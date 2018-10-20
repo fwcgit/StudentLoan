@@ -1,11 +1,15 @@
 package com.studentloan.white.mode.activity;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.studentloan.white.MyApplication;
 import com.studentloan.white.R;
 import com.studentloan.white.interfaces.DialogCallback;
 import com.studentloan.white.mode.data.AppSysInfo;
@@ -59,7 +63,10 @@ public class ZuPinActivity extends BaseActivity {
         phoneTypeTv.setText(appSysInfo.getPhoneType());
         imeiTv.setText(appSysInfo.getDeviceId());
 
-        getBorrowLimits();
+        if(userInfo.submit == 1 && userInfo.verificationResult == 1) {
+            getBorrowLimits();
+        }
+
     }
 
 
@@ -145,7 +152,7 @@ public class ZuPinActivity extends BaseActivity {
             return;
         }
 
-        float dzPrice = Float.valueOf(price) * 0.95f;
+        //float dzPrice = Float.valueOf(price) * 0.95f;
 
         JieKuanFeiYong feiYong = new JieKuanFeiYong();
         feiYong.jinE = Integer.valueOf(price);
@@ -156,7 +163,7 @@ public class ZuPinActivity extends BaseActivity {
         DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
             @Override
             public void confirm() {
-                requestLoan(price);
+                checkPersonalInfo(price);
             }
 
             @Override
@@ -170,10 +177,7 @@ public class ZuPinActivity extends BaseActivity {
             }
         });
 
-
-
     }
-
 
 
     public void getBorrowLimits(){
@@ -184,14 +188,12 @@ public class ZuPinActivity extends BaseActivity {
                 if(response.isSucceed() && response.get() != null){
                     int ls[] = response.get().result;
                     priceEt.setText((ls[ls.length-1])+"");
-                }else{
-                    finish();
                 }
             }
 
             @Override
             public void onFailed(int what, Response<BorrowLimitsResponse> response) {
-                finish();
+
             }
         },true);
     }
@@ -223,5 +225,66 @@ public class ZuPinActivity extends BaseActivity {
 
             }
         },true);
+    }
+    
+    public void checkPersonalInfo(final String price){
+
+        if(userInfo.submit != 1 || userInfo.verificationResult != 1) {
+            Toast.makeText(this,"请完成个人信息认证！",Toast.LENGTH_SHORT).show();
+            finish();
+            skipPersionalInfo();
+            return;
+        }
+
+        MyApplication.mainActivity.getHuankuan(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                if (msg.arg1 == 1) {
+                    Toast.makeText(ZuPinActivity.this, "还有未完成的租赁!", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    if(userInfo.identification == null){
+                        if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
+                            Toast.makeText(ZuPinActivity.this,"你的个人信息已超最大认证次数.无法使用",Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
+                    }
+
+                    int dayTime = 24 * 60 * 60 * 1000;
+
+                    if(null == userInfo.yunYingShangVeriTime || (userInfo.serverTime - userInfo.yunYingShangVeriTime)/dayTime > 60  ){
+                        Toast.makeText(ZuPinActivity.this,"请完成手机运营商信息",Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+
+                    requestLoan(price);
+                }
+                return false;
+            }
+        });
+    }
+
+    private void skipPersionalInfo(){
+
+        if(userInfo.submit != 1 || userInfo.verificationResult != 0){
+
+            if(userInfo.identification == null){
+                if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
+                    Toast.makeText(this,"你的个人信息已超最大认证次数.无法使用",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            if(userInfo.wangYinRenZhengJieGuo != 1){
+                if(userInfo.shengYuWangYinRenZhengCiShu <= 0){
+                    Toast.makeText(this,"你的网银认证已超最大次数.无法使用",Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+            }
+        }
+
+        //个人资料
+        com.studentloan.white.mode.activity.PersonalDataActivity_.intent(this).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
     }
 }

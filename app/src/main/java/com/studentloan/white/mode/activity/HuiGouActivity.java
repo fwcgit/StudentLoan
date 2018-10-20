@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fuiou.pay.FyPay;
 import com.fuiou.pay.FyPayCallBack;
@@ -49,8 +50,15 @@ import java.util.Map;
 public class HuiGouActivity extends BaseActivity {
 
     private Borrow br;
+
     @ViewById
     public TextView jkPriceTv,jkTimeTv,repartDatTv,yuqiDaysTv,xuzuTv;
+
+    @ViewById
+    public TextView payChannelFeeTv,totalPayFeeTv;
+
+    @ViewById
+    public View mainLayout;
 
     private SimpleDateFormat dateFormat = null;
 
@@ -160,10 +168,13 @@ public class HuiGouActivity extends BaseActivity {
                         }
 
                     }else{
-                        finish();
+                        Toast.makeText(HuiGouActivity.this, "没有租赁zx", Toast.LENGTH_SHORT).show();
+                        mainLayout.setVisibility(View.GONE);
                     }
                 }else{
-                    finish();
+                    Toast.makeText(HuiGouActivity.this, "没有租赁", Toast.LENGTH_SHORT).show();
+                    mainLayout.setVisibility(View.GONE);
+
                 }
             }
 

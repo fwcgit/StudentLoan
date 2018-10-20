@@ -31,7 +31,7 @@ public class NoHttpRequest {
 	
 	public void init(Context ctx){
 		NoHttp.initialize(MyApplication.getInstance());
-		Logger.setDebug(false); // 开启NoHttp调试模式。
+		Logger.setDebug(true); // 开启NoHttp调试模式。
 		Logger.setTag("NoHttpSample"); // 设置NoHttp打印Log的TAG。
 	}
 

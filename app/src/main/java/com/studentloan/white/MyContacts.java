@@ -7,12 +7,12 @@ package com.studentloan.white;
  */
 public class MyContacts {
 	public static boolean showLog = true;//是否显示日志
-	public static boolean online = false;
+	public static boolean online = true;
 //	public static final String TEST_URL = "http://139.196.104.98:84";
 //	public static final String ON_LINE_URL = "http://139.196.104.98:81";
 
-	public static final String TEST_URL = "http://app.yuhuizichan.com:12345";
-	public static final String ON_LINE_URL = "http://192.168.121.200:26000";
+	public static final String ON_LINE_URL 	= "http://app.yuhuizichan.com:12345";
+	public static final String TEST_URL		= "http://192.168.121.200:26000";
 
 	//获取任务状态时使用(合作方申请接入后由魔蝎数据提供)
 	//public static final String mApiKey = "aaf8abeeecc34d9487f9d0b224ed7bd1";
