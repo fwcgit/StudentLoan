@@ -281,7 +281,6 @@ public class HuiGouActivity extends BaseActivity {
             amount = ((int)((br.jieKuanJinE*0.01*8f-jl) * 100d))+"";
         }
 
-
         //String mchntOrdId = userInfo.account.accountId + "_"+(System.currentTimeMillis() / 1000);
         String Sing = MD5UtilString.MD5Encode("02" + "|" + "2.0" + "|"
                 + mchnt_cd + "|"
