@@ -152,31 +152,33 @@ public class ZuPinActivity extends BaseActivity {
             return;
         }
 
-        //float dzPrice = Float.valueOf(price) * 0.95f;
+        if(userInfo.submit == 1 && userInfo.verificationResult == 1) {
+            JieKuanFeiYong feiYong = new JieKuanFeiYong();
+            feiYong.jinE = Integer.valueOf(price);
+            feiYong.feiYong = feiYong.jinE * 0.01f * 15f;
+            feiYong.daoZhangJinE = (int) (feiYong.jinE - feiYong.feiYong);
+            feiYong.tianShu = 15;
+            feiYong.yingHuanJinE = feiYong.jinE * 0.95f;
+            DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
+                @Override
+                public void confirm() {
+                    checkPersonalInfo(price);
+                }
 
-        JieKuanFeiYong feiYong = new JieKuanFeiYong();
-        feiYong.jinE = Integer.valueOf(price);
-        feiYong.feiYong = feiYong.jinE * 0.01f * 15f;
-        feiYong.daoZhangJinE = (int) (feiYong.jinE - feiYong.feiYong);
-        feiYong.tianShu = 15;
-        feiYong.yingHuanJinE = feiYong.jinE * 0.95f;
-        DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
-            @Override
-            public void confirm() {
-                checkPersonalInfo(price);
-            }
+                @Override
+                public void xieyi() {
+                    DialogUtils.getInstance().showSelectHetong(ZuPinActivity.this, new DialogCallback() {
+                        @Override
+                        public void hetong(int type) {
+                            getBankCardList((type+2)+"");
+                        }
+                    });
+                }
+            });
 
-            @Override
-            public void xieyi() {
-                DialogUtils.getInstance().showSelectHetong(ZuPinActivity.this, new DialogCallback() {
-                    @Override
-                    public void hetong(int type) {
-                        getBankCardList((type+2)+"");
-                    }
-                });
-            }
-        });
-
+        }else{
+            checkPersonalInfo(price);
+        }
     }
 
 
@@ -231,8 +233,8 @@ public class ZuPinActivity extends BaseActivity {
 
         if(userInfo.submit != 1 || userInfo.verificationResult != 1) {
             Toast.makeText(this,"请完成个人信息认证！",Toast.LENGTH_SHORT).show();
-            finish();
             skipPersionalInfo();
+            finish();
             return;
         }
 
@@ -266,6 +268,8 @@ public class ZuPinActivity extends BaseActivity {
 
     private void skipPersionalInfo(){
 
+        MyApplication.mainActivity.skipFragment(1);
+
         if(userInfo.submit != 1 || userInfo.verificationResult != 0){
 
             if(userInfo.identification == null){
@@ -284,7 +288,6 @@ public class ZuPinActivity extends BaseActivity {
             }
         }
 
-        //个人资料
-        com.studentloan.white.mode.activity.PersonalDataActivity_.intent(this).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
+
     }
 }

@@ -20,5 +20,7 @@ public class JieKuanFeiYong {
     public int tianShu;
     public float liXi;
     public float yingHuanJinE;
+    public double shouXuFei;
+    public double zongZhiFuFeiYong;
 
 }

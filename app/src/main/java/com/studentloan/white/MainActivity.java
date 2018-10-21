@@ -70,6 +70,10 @@ public class MainActivity extends FragmentActivity {
 
 	private int currIndex = 0;
 	private Fragment[] fragments;
+	private   boolean isShip = false;
+	private  int skipIndex = 0;
+	@ViewById
+	View speedLoanLayout,personalLayout,moreLayout;
 
 
 	int[] selectRes = new int[]{R.drawable.icon_home_select,R.drawable.icon_persoal_center_select,R.drawable.icon_more_select};
@@ -78,6 +82,11 @@ public class MainActivity extends FragmentActivity {
 	ImageView[] selectImgs;
 
 	private long mExitTime;
+
+	public void skipFragment(int i){
+		isShip = true;
+		skipIndex = i;
+	}
 
 	@Override
 	public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
@@ -139,6 +148,23 @@ public class MainActivity extends FragmentActivity {
 
 		getShengheState();
 
+		if(isShip){
+			isShip = false;
+			switchFragment(skipIndex);
+			switch (skipIndex)
+			{
+				case 0:
+					findTextViewSetColor(speedLoanLayout);
+					break;
+				case 1:
+					findTextViewSetColor(personalLayout);
+					break;
+				case 2:
+					findTextViewSetColor(moreLayout);
+					break;
+			}
+
+		}
 	}
 
 	@Override

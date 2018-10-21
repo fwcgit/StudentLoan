@@ -175,7 +175,7 @@ public class HuiGouActivity extends BaseActivity {
                         }
 
                     }else{
-                        Toast.makeText(HuiGouActivity.this, "没有租赁zx", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HuiGouActivity.this, "没有租赁", Toast.LENGTH_SHORT).show();
 
                     }
                 }else{

@@ -62,7 +62,7 @@ public class HistoryNotesAdapter extends BaseAdapter {
 
 		Borrow borrow = list.get(position);
 
-		h.hyPriceTv.setText(borrow.huanKuanJinE+" 元");
+		h.hyPriceTv.setText(ConvertUtils.float2String(borrow.zongZhiFuFeiYong)+" 元");
 		h.jkPriceTv.setText("出售金额："+borrow.jieKuanJinE+" 元");
 		h.jkDateTv.setText("租赁日期："+ ConvertUtils.dateTimeToStr(new Date(borrow.jieKuanRiQi),"yyyy年MM月dd日"));
 
