@@ -76,20 +76,21 @@ public class HistoryNotesAdapter extends BaseAdapter {
 
 		if(borrow.jieKuanZhuangTai < 0){
 
+			h.hyPriceTv.setText("0 元");
 			h.statusTv.setText("出售失败");
 			h.hkDateTv.setVisibility(View.GONE);
 			h.sjhkDateTv.setVisibility(View.GONE);
 			h.statusTv.setTextColor(0xffff0000);
 
 		}else if(borrow.jieKuanZhuangTai == 0 || borrow.jieKuanZhuangTai == 1){
-
+			h.hyPriceTv.setText("0 元");
 			h.statusTv.setText("审核中");
 			h.hkDateTv.setVisibility(View.GONE);
 			h.statusTv.setTextColor(0xffff0000);
 
 		}else if(borrow.jieKuanZhuangTai == 2){
 			h.huigouhintTv.setVisibility(View.VISIBLE);
-			h.hyPriceTv.setText(borrow.yingHuanKuanJinE+" 元");
+			h.hyPriceTv.setText(ConvertUtils.float2String(borrow.zongZhiFuFeiYong)+" 元");
 			h.statusTv.setText("立即回购>");
 			h.statusTv.setTextColor(0xff27aa29);
 

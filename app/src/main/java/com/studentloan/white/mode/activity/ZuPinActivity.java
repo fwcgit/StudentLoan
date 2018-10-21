@@ -152,33 +152,73 @@ public class ZuPinActivity extends BaseActivity {
             return;
         }
 
-        if(userInfo.submit == 1 && userInfo.verificationResult == 1) {
-            JieKuanFeiYong feiYong = new JieKuanFeiYong();
-            feiYong.jinE = Integer.valueOf(price);
-            feiYong.feiYong = feiYong.jinE * 0.01f * 15f;
-            feiYong.daoZhangJinE = (int) (feiYong.jinE - feiYong.feiYong);
-            feiYong.tianShu = 15;
-            feiYong.yingHuanJinE = feiYong.jinE * 0.95f;
-            DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
-                @Override
-                public void confirm() {
-                    checkPersonalInfo(price);
-                }
-
-                @Override
-                public void xieyi() {
-                    DialogUtils.getInstance().showSelectHetong(ZuPinActivity.this, new DialogCallback() {
-                        @Override
-                        public void hetong(int type) {
-                            getBankCardList((type+2)+"");
-                        }
-                    });
-                }
-            });
-
-        }else{
-            checkPersonalInfo(price);
+        if(userInfo.submit == 1 && userInfo.verificationResult != 1){
+            Toast.makeText(ZuPinActivity.this,"审核中！",Toast.LENGTH_SHORT).show();
+            return;
         }
+
+		if (userInfo.blackList == 1 || userInfo.frozen == 1) {
+			MyApplication.mainActivity.getHuankuan(new Handler.Callback() {
+				@Override
+				public boolean handleMessage(Message msg) {
+					if (msg.arg1 == 1) {
+						Toast.makeText(ZuPinActivity.this, "还有未完成的租赁!", Toast.LENGTH_SHORT).show();
+					} else {
+						Toast.makeText(ZuPinActivity.this, "账户已被冻结无法使用", Toast.LENGTH_SHORT).show();
+					}
+					return false;
+				}
+			});
+		} else {
+
+			MyApplication.mainActivity.getHuankuan(new Handler.Callback() {
+				@Override
+				public boolean handleMessage(Message msg) {
+					if (msg.arg1 == 1) {
+						Toast.makeText(ZuPinActivity.this, "还有未完成的租赁!", Toast.LENGTH_SHORT).show();
+					}else{
+
+						if(userInfo.identification == null){
+							if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
+								Toast.makeText(ZuPinActivity.this,"你的个人信息已超最大认证次数.无法使用",Toast.LENGTH_SHORT).show();
+								return false;
+							}
+						}
+
+                        if(userInfo.submit == 1 && userInfo.verificationResult == 1) {
+                            JieKuanFeiYong feiYong = new JieKuanFeiYong();
+                            feiYong.jinE = Integer.valueOf(price);
+                            feiYong.feiYong = feiYong.jinE * 0.01f * 15f;
+                            feiYong.daoZhangJinE = (int) (feiYong.jinE - feiYong.feiYong);
+                            feiYong.tianShu = 15;
+                            feiYong.yingHuanJinE = feiYong.jinE * 0.95f;
+                            DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
+                                @Override
+                                public void confirm() {
+                                    checkPersonalInfo(price);
+                                }
+
+                                @Override
+                                public void xieyi() {
+                                    DialogUtils.getInstance().showSelectHetong(ZuPinActivity.this, new DialogCallback() {
+                                        @Override
+                                        public void hetong(int type) {
+                                            getBankCardList((type+2)+"");
+                                        }
+                                    });
+                                }
+                            });
+
+                        }else{
+                            checkPersonalInfo(price);
+                        }
+					}
+					return false;
+				}
+			});
+
+		}
+
     }
 
 
