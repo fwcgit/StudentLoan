@@ -28,7 +28,6 @@ public class ConvertUtils {
 	}
 
 
-
 	/**
 	 * 日期时间转字符串
 	 * 
