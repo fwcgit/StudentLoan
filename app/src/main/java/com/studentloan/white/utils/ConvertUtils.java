@@ -75,4 +75,14 @@ public class ConvertUtils {
 		 float fontScale = context.getResources().getDisplayMetrics().density;
 	  return (int) (spValue * fontScale + 0.5f);
 	 }
+
+	 public static String float2String(Double val){
+	 	String str = "";
+	 	str = String.format("%.2f",val);
+
+	 	if(str.substring(str.indexOf(".")+1,str.indexOf(".")+2).equals("0") && str.substring(str.indexOf(".")+2,str.indexOf(".")+3).equals("0")){
+			str = String.format("%.0f",val);
+		}
+		return str;
+	 }
 }

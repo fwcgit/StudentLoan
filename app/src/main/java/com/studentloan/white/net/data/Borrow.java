@@ -18,6 +18,8 @@ public class Borrow {
 //    yingHuanKuanJinE	Float	应该还款金额 17-06-30
 //    overdueDays	Integer	逾期天数 17-06-30
 //    overdueFee	Float	逾期费用 17-06-30
+//    shouXuFei 每笔手续费
+//    zongZhiFuFeiYong 总支付费用
 
     public int borrowId;
     public int jieKuanJinE;
@@ -33,5 +35,7 @@ public class Borrow {
     public float jieKuanFeiYong;
     public Long huanKuanDeadline;
     public int xuZu;
+    public double shouXuFei;
+    public double zongZhiFuFeiYong;
 
 }

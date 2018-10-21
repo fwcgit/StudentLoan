@@ -27,6 +27,7 @@ import com.studentloan.white.net.data.Borrow;
 import com.studentloan.white.net.data.BorrowResponse;
 import com.studentloan.white.net.data.GetBankCardResponse;
 import com.studentloan.white.net.data.StringResponse;
+import com.studentloan.white.utils.ConvertUtils;
 import com.studentloan.white.utils.DialogUtils;
 import com.yolanda.nohttp.rest.Response;
 
@@ -80,6 +81,8 @@ public class HuiGouActivity extends BaseActivity {
 
         FyPay.setDev(true);//此代码是配置jar包为环境配置，true是生产   false测试
         FyPay.init(this);
+
+        mainLayout.setVisibility(View.GONE);
 
         getLoanInfo();
     }
@@ -155,12 +158,16 @@ public class HuiGouActivity extends BaseActivity {
                 if(response.isSucceed() && response.get() != null){
                     if(response.get().result != null){
                         br = response.get().result;
+
+                        mainLayout.setVisibility(View.VISIBLE);
+
                         jkPriceTv.setText(br.yingHuanKuanJinE+"");
                         jkTimeTv.setText(br.jieKuanTianShu+"天");
                         repartDatTv.setText(dateFormat.format(new Date(br.huanKuanDeadline)));
                         yuqiDaysTv.setText(br.overdueDays+"天");
                         xuzuTv.setText((br.xuZu*8)+"天");
-
+                        payChannelFeeTv.setText(ConvertUtils.float2String(br.shouXuFei));
+                        totalPayFeeTv.setText(String.format("%.2f",br.zongZhiFuFeiYong));
                         if(br.xuZu < 2){
                             xuZuBtn.setVisibility(View.VISIBLE);
                         }else{
@@ -169,11 +176,11 @@ public class HuiGouActivity extends BaseActivity {
 
                     }else{
                         Toast.makeText(HuiGouActivity.this, "没有租赁zx", Toast.LENGTH_SHORT).show();
-                        mainLayout.setVisibility(View.GONE);
+
                     }
                 }else{
                     Toast.makeText(HuiGouActivity.this, "没有租赁", Toast.LENGTH_SHORT).show();
-                    mainLayout.setVisibility(View.GONE);
+
 
                 }
             }
