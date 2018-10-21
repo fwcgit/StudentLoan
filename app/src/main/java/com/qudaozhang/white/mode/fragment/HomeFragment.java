@@ -30,7 +30,6 @@ public class HomeFragment extends BaseFramgent {
 	@AfterViews
 	public void initViews() {
 		titleBar.setTitle("首页");
-
 	}
 
 	@Click
