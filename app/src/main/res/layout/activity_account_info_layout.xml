@@ -33,7 +33,7 @@
                 android:textColor="@color/font_color"
                 android:textSize="16sp" />
 
-            <com.studentloan.white.mode.view.RoundImageView
+            <com.qudaozhang.white.mode.view.RoundImageView
                 android:id="@+id/headImg"
                 android:layout_width="40dp"
                 android:layout_height="40dp"

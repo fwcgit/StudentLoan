@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:drawable="@drawable/icon_button_d" android:state_pressed="false"/>
-<item android:drawable="@drawable/icon_button_s" android:state_pressed="true"/>
+<item android:state_pressed="true">
+    <layer-list>
+        <item android:drawable="@drawable/icon_button_d"></item>
+        <item >
+            <shape>
+                <solid android:color="#aa000000"></solid>
+            </shape>
+        </item>
+    </layer-list>
+</item>
+
 </selector>

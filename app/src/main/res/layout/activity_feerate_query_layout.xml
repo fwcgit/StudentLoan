@@ -65,7 +65,7 @@
             android:secondaryProgress="0"
             android:thumbOffset="0dp"/>
 
-        <com.studentloan.white.mode.view.ScaleTextView
+        <com.qudaozhang.white.mode.view.ScaleTextView
             android:id="@+id/scaleTextView"
             android:layout_width="match_parent"
             android:layout_height="20dp"
@@ -77,7 +77,7 @@
             ScaleTextView:textSize="12"
             >
 
-        </com.studentloan.white.mode.view.ScaleTextView>
+        </com.qudaozhang.white.mode.view.ScaleTextView>
 
         <LinearLayout
             android:layout_width="match_parent"

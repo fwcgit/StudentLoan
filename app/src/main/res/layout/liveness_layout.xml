@@ -10,18 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.studentloan.white.mode.view.AutoRatioImageview
+    <com.qudaozhang.white.mode.view.AutoRatioImageview
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/liveness_layout_camera_mask" />
 
-    <com.studentloan.white.mode.activity.FaceMask
+    <com.qudaozhang.white.mode.activity.FaceMask
         android:id="@+id/liveness_layout_facemask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
-    <com.studentloan.white.mode.view.AutoRatioImageview
+    <com.qudaozhang.white.mode.view.AutoRatioImageview
         android:id="@+id/liveness_layout_head_mask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 android:textColor="#00BEE2"
                 android:textSize="20sp" />
 
-            <com.studentloan.white.mode.view.CircleProgressBar
+            <com.qudaozhang.white.mode.view.CircleProgressBar
                 android:id="@+id/detection_step_timeout_progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

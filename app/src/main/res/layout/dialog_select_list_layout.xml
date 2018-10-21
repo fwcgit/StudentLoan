@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <com.studentloan.white.mode.view.wheel.WheelView
+            <com.qudaozhang.white.mode.view.wheel.WheelView
                 android:id="@+id/wheelView"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"

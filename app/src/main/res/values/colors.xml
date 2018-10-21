@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="home_select">#ff26aa28</color>
+    <color name="home_select">#ff5a71ff</color>
     <color name="home_normal">#ff666666</color>
-    <color name="bg">#ff26aa28</color>
+    <color name="bg">#ff5a71ff</color>
     <color name="window_bg">#f8f8f8</color>
     <color name="font_color">#ff686868</color>
     <color name="font_hint_color">#ffcccccc</color>

@@ -26,7 +26,7 @@
             android:paddingBottom="8dp"
             android:paddingTop="8dp">
 
-            <com.studentloan.white.mode.view.RoundImageView
+            <com.qudaozhang.white.mode.view.RoundImageView
                 android:id="@+id/headImg"
                 android:layout_width="80dp"
                 android:layout_height="80dp"

@@ -12,7 +12,7 @@
         >
 
 
-        <com.studentloan.white.mode.view.TouchDelView
+        <com.qudaozhang.white.mode.view.TouchDelView
             android:id="@+id/delView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -101,7 +101,7 @@
                 android:textSize="16sp"
                 />
 
-        </com.studentloan.white.mode.view.TouchDelView>
+        </com.qudaozhang.white.mode.view.TouchDelView>
 
 
     </FrameLayout>

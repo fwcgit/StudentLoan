@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.studentloan.white.utils.id.view.IDCardNewIndicator
+    <com.qudaozhang.white.utils.id.view.IDCardNewIndicator
         android:id="@+id/idcardscan_layout_newIndicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="false"
         android:focusable="false" />
 
-    <com.studentloan.white.utils.id.view.IDCardIndicator
+    <com.qudaozhang.white.utils.id.view.IDCardIndicator
         android:id="@+id/idcardscan_layout_indicator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +33,7 @@
          android:layout_marginBottom="30dip"
          android:layout_alignParentBottom="true"
         >
-        <com.studentloan.white.utils.id.view.AutoRatioImageview
+        <com.qudaozhang.white.utils.id.view.AutoRatioImageview
             android:id="@+id/idcardscan_layout_idCardImage"
             android:layout_width="140dip"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
         android:textColor="#ffffffff"
         android:visibility="gone" />
 
-    <com.studentloan.white.utils.id.utils.MyTextView
+    <com.qudaozhang.white.utils.id.utils.MyTextView
         android:id="@+id/idcardscan_layout_topTitle"
         android:layout_width="wrap_content"
         android:layout_height="300dp"

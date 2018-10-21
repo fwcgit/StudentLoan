@@ -69,21 +69,21 @@
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal" >
 
-                <com.studentloan.white.mode.view.wheel.WheelView
+                <com.qudaozhang.white.mode.view.wheel.WheelView
                     android:id="@+id/year"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1" />
 
-                <com.studentloan.white.mode.view.wheel.WheelView
+                <com.qudaozhang.white.mode.view.wheel.WheelView
                     android:id="@+id/month"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1" />
 
-                <com.studentloan.white.mode.view.wheel.WheelView
+                <com.qudaozhang.white.mode.view.wheel.WheelView
                     android:id="@+id/day"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

@@ -9,7 +9,7 @@
         android:id="@+id/titleLayout"
         layout="@layout/title_bar_layout" />
 
-    <com.studentloan.white.mode.view.PullUpView
+    <com.qudaozhang.white.mode.view.PullUpView
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +23,6 @@
             android:divider="@drawable/shape_e6e6e6_line"
             android:dividerHeight="0.6dp" >
         </ListView>
-    </com.studentloan.white.mode.view.PullUpView>
+    </com.qudaozhang.white.mode.view.PullUpView>
 
 </RelativeLayout>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.studentloan.white">
+    package="com.qudaozhang.white">
 
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="25" />
     <permission
-        android:name="com.studentloan.white.permission.JPUSH_MESSAGE"
+        android:name="com.qudaozhang.white.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.studentloan.white.permission.JPUSH_MESSAGE" />
@@ -54,13 +54,13 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-        android:name="com.studentloan.white.MyApplication"
+        android:name="com.qudaozhang.white.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black.NoTitleBar">
         <activity
-            android:name="com.studentloan.white.mode.activity.LoadingActivity_"
+            android:name="com.qudaozhang.white.mode.activity.LoadingActivity_"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
@@ -72,134 +72,134 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.studentloan.white.MainActivity_"
+            android:name="com.qudaozhang.white.MainActivity_"
             android:screenOrientation="portrait"
             android:singleUser="true"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.LoginActivity_"
+            android:name="com.qudaozhang.white.mode.activity.LoginActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.RegisterActivity_"
+            android:name="com.qudaozhang.white.mode.activity.RegisterActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.ForgetPasswordActivity_"
+            android:name="com.qudaozhang.white.mode.activity.ForgetPasswordActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.ProgressQueryActivity_"
+            android:name="com.qudaozhang.white.mode.activity.ProgressQueryActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.BorrowMoneyActivity_"
+            android:name="com.qudaozhang.white.mode.activity.BorrowMoneyActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.RefundActivity_"
+            android:name="com.qudaozhang.white.mode.activity.RefundActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.MsgActivity_"
+            android:name="com.qudaozhang.white.mode.activity.MsgActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.AccountInfoActivity_"
+            android:name="com.qudaozhang.white.mode.activity.AccountInfoActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.PersonalInfoActivity_"
+            android:name="com.qudaozhang.white.mode.activity.PersonalInfoActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.PersonalDataActivity_"
+            android:name="com.qudaozhang.white.mode.activity.PersonalDataActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.AwardActivity_"
+            android:name="com.qudaozhang.white.mode.activity.AwardActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.AddContactsActivity_"
+            android:name="com.qudaozhang.white.mode.activity.AddContactsActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.ShoolrollAuthenActivity_"
+            android:name="com.qudaozhang.white.mode.activity.ShoolrollAuthenActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.BoundAlipayActivity_"
+            android:name="com.qudaozhang.white.mode.activity.BoundAlipayActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.AboutActivity_"
+            android:name="com.qudaozhang.white.mode.activity.AboutActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.HistoryNotesActivity_"
+            android:name="com.qudaozhang.white.mode.activity.HistoryNotesActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.ChangePasswordActivity_"
+            android:name="com.qudaozhang.white.mode.activity.ChangePasswordActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.SelectCityActivity_"
+            android:name="com.qudaozhang.white.mode.activity.SelectCityActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.SelectShoolActivity_"
+            android:name="com.qudaozhang.white.mode.activity.SelectShoolActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.GuideActivity_"
+            android:name="com.qudaozhang.white.mode.activity.GuideActivity_"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.WebViewActivity_"
+            android:name="com.qudaozhang.white.mode.activity.WebViewActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.XueXinAuthActivity_"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
-
-        <activity
-            android:name="com.studentloan.white.mode.activity.SelctCityDetailActivity_"
+            android:name="com.qudaozhang.white.mode.activity.XueXinAuthActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <activity
-            android:name="com.studentloan.white.mode.activity.MoreInfoActivity_"
+            android:name="com.qudaozhang.white.mode.activity.SelctCityDetailActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <activity
-            android:name="com.studentloan.white.mode.activity.ProfessionInfoActivity_"
+            android:name="com.qudaozhang.white.mode.activity.MoreInfoActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <activity
-            android:name="com.studentloan.white.mode.activity.AddBankCardActivity_"
+            android:name="com.qudaozhang.white.mode.activity.ProfessionInfoActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <activity
-            android:name="com.studentloan.white.mode.activity.BoundBankCardActivity_"
+            android:name="com.qudaozhang.white.mode.activity.AddBankCardActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <activity
-            android:name="com.studentloan.white.mode.activity.AlipayRefundActivity_"
+            android:name="com.qudaozhang.white.mode.activity.BoundBankCardActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
         <activity
-            android:name="com.studentloan.white.mode.activity.LivenessActivity"
+            android:name="com.qudaozhang.white.mode.activity.AlipayRefundActivity_"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+
+        <activity
+            android:name="com.qudaozhang.white.mode.activity.LivenessActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.studentloan.white.mode.activity.IDCardScanActivity"
+        <activity android:name="com.qudaozhang.white.mode.activity.IDCardScanActivity"
                   android:screenOrientation="portrait"></activity>
 
         <activity
@@ -209,11 +209,11 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
 <!-- 租赁-->
         <activity
-            android:name="com.studentloan.white.mode.activity.ZuPinActivity_"
+            android:name="com.qudaozhang.white.mode.activity.ZuPinActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.HuiGouActivity_"
+            android:name="com.qudaozhang.white.mode.activity.HuiGouActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
@@ -224,11 +224,11 @@
         <!--android:windowSoftInputMode="stateHidden|adjustPan" >-->
         <!--</activity>-->
         <activity
-            android:name="com.studentloan.white.mode.activity.HelpDetailActivity_"
+            android:name="com.qudaozhang.white.mode.activity.HelpDetailActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
         <activity
-            android:name="com.studentloan.white.mode.activity.HelpActivity_"
+            android:name="com.qudaozhang.white.mode.activity.HelpActivity_"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
 
@@ -315,7 +315,7 @@
 
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
-            android:name="com.studentloan.white.receive.JPushReceive"
+            android:name="com.qudaozhang.white.receive.JPushReceive"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

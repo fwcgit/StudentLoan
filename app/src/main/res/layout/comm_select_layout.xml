@@ -10,7 +10,7 @@
         android:id="@+id/titleLayout"
         layout="@layout/title_bar_layout" />
 
-    <com.studentloan.white.mode.view.LetterIndexView
+    <com.qudaozhang.white.mode.view.LetterIndexView
         android:id="@+id/letterIndexView"
         android:layout_width="40dp"
         android:layout_height="match_parent"

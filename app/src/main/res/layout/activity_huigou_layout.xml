@@ -332,13 +332,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"
-            android:drawableEnd="@drawable/icon_pay_arrow"
-            android:drawablePadding="4dp"
-            android:text="支付宝回购手机"
-            android:textColor="#26aa28"
-            android:textSize="20sp"
-            android:paddingBottom="20dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/icon_pay_hint"
             />
     </RelativeLayout>
 
