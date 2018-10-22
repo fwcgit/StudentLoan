@@ -192,6 +192,8 @@ public class ZuPinActivity extends BaseActivity {
                             feiYong.daoZhangJinE = (int) (feiYong.jinE - feiYong.feiYong);
                             feiYong.tianShu = 15;
                             feiYong.yingHuanJinE = feiYong.jinE * 0.95f;
+                            feiYong.shouXuFei = 4d;
+                            feiYong.zongZhiFuFeiYong = feiYong.yingHuanJinE+feiYong.shouXuFei;
                             DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
                                 @Override
                                 public void confirm() {

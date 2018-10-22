@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,10 +18,12 @@ import com.fuiou.pay.FyPay;
 import com.fuiou.pay.FyPayCallBack;
 import com.fuiou.pay.util.AppConfig;
 import com.fuiou.pay.util.MD5UtilString;
+import com.studentloan.white.MyApplication;
 import com.studentloan.white.MyContacts;
 import com.studentloan.white.R;
 import com.studentloan.white.interfaces.DialogCallback;
 import com.studentloan.white.net.HttpListener;
+import com.studentloan.white.net.NoHttpRequest;
 import com.studentloan.white.net.ServerInterface;
 import com.studentloan.white.net.data.BankCard;
 import com.studentloan.white.net.data.BooleanResponse;
@@ -84,8 +88,68 @@ public class HuiGouActivity extends BaseActivity {
 
         mainLayout.setVisibility(View.GONE);
 
-        getLoanInfo();
+        if(userInfo.submit == 1 && userInfo.verificationResult != 1){
+			Toast.makeText(this,"审核中！",Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+
+
+        if(userInfo.submit == 1 && userInfo.verificationResult == 1){
+            if (userInfo.blackList == 1 || userInfo.frozen == 1) {
+                MyApplication.mainActivity.getHuankuan(new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(Message msg) {
+                        if (msg.arg1 == 1) {
+                            getHuankuanData();
+                        } else {
+                            Toast.makeText(HuiGouActivity.this, "账户已被冻结无法使用", Toast.LENGTH_SHORT).show();
+                        }
+                        return false;
+
+                    }
+                });
+            } else {
+                if(userInfo.identification == null){
+                    if(userInfo.shengYuShenFenRenZhengCiShu <= 0 ){
+                        Toast.makeText(HuiGouActivity.this,"你的个人信息已超最大认证次数.无法使用",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                getHuankuanData();
+            }
+        }
+
+
     }
+
+    public void getHuankuanData() {
+        String formatUrl = String.format(ServerInterface.BORROW_PROGRESS, userInfo.account.cellphone, userInfo.token);
+        NoHttpRequest.getInstance().requestGet(HuiGouActivity.this, formatUrl.hashCode(), formatUrl, BorrowResponse.class, new HttpListener<BorrowResponse>() {
+            @Override
+            public void onSucceed(int what, Response<BorrowResponse> response) {
+                if (response.isSucceed() && response.get() != null) {
+                    Borrow borrow = response.get().result;
+                    if (null != borrow) {
+                        if (borrow.jieKuanZhuangTai == 2) {
+                            getLoanInfo();
+                        } else if(borrow.jieKuanZhuangTai == 3 || borrow.jieKuanZhuangTai < 0){
+                            Toast.makeText(HuiGouActivity.this, "没有租赁", Toast.LENGTH_SHORT).show();
+                        }else if(borrow.jieKuanZhuangTai == 0 || borrow.jieKuanZhuangTai == 1){
+                            Toast.makeText(HuiGouActivity.this, "等待放款", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailed(int what, Response<BorrowResponse> response) {
+
+            }
+        }, true);
+    }
+
     @Click
     public void xuZuBtn(){
         isXuzu = true;
@@ -163,10 +227,10 @@ public class HuiGouActivity extends BaseActivity {
 
                         jkPriceTv.setText(br.yingHuanKuanJinE+"");
                         jkTimeTv.setText(br.jieKuanTianShu+"天");
-                        repartDatTv.setText(dateFormat.format(new Date(br.huanKuanDeadline)));
+                        repartDatTv.setText(dateFormat.format(new Date(br.huanKuanDeadline))+"日");
                         yuqiDaysTv.setText(br.overdueDays+"天");
                         xuzuTv.setText((br.xuZu*8)+"天");
-                        payChannelFeeTv.setText(ConvertUtils.float2String(br.shouXuFei));
+                        payChannelFeeTv.setText(ConvertUtils.float2String(br.shouXuFei)+"元/笔");
                         totalPayFeeTv.setText(String.format("%.2f",br.zongZhiFuFeiYong));
                         if(br.xuZu < 2){
                             xuZuBtn.setVisibility(View.VISIBLE);
@@ -282,10 +346,10 @@ public class HuiGouActivity extends BaseActivity {
         String mchnt_key = "fh46fyu0lezippityvtrrdwbv4cus33v";
         String mchnt_cd = "0002900F0395202";
 
-        String amount = ((int)((br.yingHuanKuanJinE-jl) * 100d))+"";
+        String amount = ((int)((br.zongZhiFuFeiYong-jl) * 100d))+"";
 
         if(isXuzu){
-            amount = ((int)((br.jieKuanJinE*0.01*8f-jl) * 100d))+"";
+            amount = ((int)((br.jieKuanJinE*0.01*8f-jl) * 100d)+400)+"";
         }
 
         //String mchntOrdId = userInfo.account.accountId + "_"+(System.currentTimeMillis() / 1000);
