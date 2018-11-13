@@ -6,7 +6,7 @@ package com.studentloan.white;
  * @create date 2016.05.11
  */
 public class MyContacts {
-	public static boolean showLog = true;//是否显示日志
+	public static boolean showLog = false;//是否显示日志
 	public static boolean online = true;
 //	public static final String TEST_URL = "http://139.196.104.98:84";
 //	public static final String ON_LINE_URL = "http://139.196.104.98:81";
