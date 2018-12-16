@@ -15,6 +15,7 @@ import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.qudaozhang.white.interfaces.DialogCallback;
 import com.qudaozhang.white.mode.fragment.HomeFragment;
+import com.qudaozhang.white.mode.fragment.HuiGouFragment;
 import com.qudaozhang.white.mode.fragment.MoreFragment;
 import com.qudaozhang.white.mode.fragment.PersonalCenterFragment;
 import com.qudaozhang.white.net.HttpListener;
@@ -60,11 +62,12 @@ public class MainActivity extends FragmentActivity {
 	private static final int RESULT_PHOTO_IMAGE = 0x002;
 
 	@ViewById
-	public ImageView homeImg,persionImg,moreImg;
+	public ImageView homeImg,huigouImg,persionImg,moreImg;
 	@ViewById
 	public LinearLayout layoutButtom;
 
 	private HomeFragment homeFragment;
+	private HuiGouFragment huiGouFragment;
 	private PersonalCenterFragment personalFragment;
 	private MoreFragment moreFragment;
 
@@ -72,8 +75,8 @@ public class MainActivity extends FragmentActivity {
 	private Fragment[] fragments;
 
 
-	int[] selectRes = new int[]{R.drawable.icon_home_select,R.drawable.icon_persoal_center_select,R.drawable.icon_more_select};
-	int[] normalRes = new int[]{R.drawable.icon_home_normal,R.drawable.icon_personal_center_normal,R.drawable.icon_more_normal};
+	int[] selectRes = new int[]{R.drawable.icon_home_select,R.drawable.icon_huigou_select,R.drawable.icon_persoal_center_select,R.drawable.icon_more_select};
+	int[] normalRes = new int[]{R.drawable.icon_home_normal,R.drawable.icon_huigou_normal,R.drawable.icon_personal_center_normal,R.drawable.icon_more_normal};
 
 	ImageView[] selectImgs;
 
@@ -93,18 +96,20 @@ public class MainActivity extends FragmentActivity {
 		SystemOpt.getInstance().init(this);//读取系统信息
 
 		homeFragment = com.qudaozhang.white.mode.fragment.HomeFragment_.builder().build();
+		huiGouFragment = com.qudaozhang.white.mode.fragment.HuiGouFragment_.builder().build();
 		personalFragment = com.qudaozhang.white.mode.fragment.PersonalCenterFragment_.builder().build();
 		moreFragment = com.qudaozhang.white.mode.fragment.MoreFragment_.builder().build();
 
 		getSupportFragmentManager().beginTransaction().
 		add(R.id.homeLayout,homeFragment).
+		add(R.id.homeLayout,huiGouFragment).
 		add(R.id.homeLayout,personalFragment).
 		add(R.id.homeLayout,moreFragment).
-		hide(moreFragment).hide(personalFragment).show(homeFragment).commit();
+		hide(huiGouFragment).hide(moreFragment).hide(personalFragment).show(homeFragment).commit();
 
-		fragments = new Fragment[]{homeFragment,personalFragment,moreFragment};
+		fragments = new Fragment[]{homeFragment,huiGouFragment,personalFragment,moreFragment};
 
-		selectImgs = new ImageView[]{homeImg,persionImg,moreImg};
+		selectImgs = new ImageView[]{homeImg,huigouImg,persionImg,moreImg};
 
 
 		if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
@@ -139,6 +144,10 @@ public class MainActivity extends FragmentActivity {
 
 		getShengheState();
 
+		if(null != huiGouFragment){
+			huiGouFragment.getLoanInfo();
+		}
+
 	}
 
 	@Override
@@ -152,14 +161,22 @@ public class MainActivity extends FragmentActivity {
 		switchFragment(0);
 		findTextViewSetColor(v);
 	}
+
+	@Click
+	public void huigouLayout(View v){
+		switchFragment(1);
+		huiGouFragment.getLoanInfo();
+		findTextViewSetColor(v);
+	}
+
 	@Click
 	public void personalLayout(View v){
-		switchFragment(1);
+		switchFragment(2);
 		findTextViewSetColor(v);
 	}
 	@Click
 	public void moreLayout(View v){
-		switchFragment(2);
+		switchFragment(3);
 		findTextViewSetColor(v);
 	}
 
@@ -321,7 +338,7 @@ public class MainActivity extends FragmentActivity {
 			final UserInfo ui = MyApplication.getInstance().userInfo;
 			String versionName = SystemOpt.getInstance().appSysInfo.getAppVersion();
 
-			if(!versionName.equals(ui.latestVersion)){
+			if(!versionName.equals(ui.latestVersion) && !TextUtils.isEmpty(ui.latestVersion)){
 				DialogUtils.getInstance().showUpdate(this, new DialogCallback() {
 					@Override
 					public void confirm() {
@@ -343,6 +360,7 @@ public class MainActivity extends FragmentActivity {
 				});
 			}
 		}
+
 
 
 }

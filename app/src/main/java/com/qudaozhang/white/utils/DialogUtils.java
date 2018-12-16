@@ -304,7 +304,7 @@ public class DialogUtils {
 		((TextView)dialog.findViewById(R.id.jiekuanCostTv)).setText(jieKuanFeiYong.feiYong+"元");
 		((TextView)dialog.findViewById(R.id.daozhangEtv)).setText(jieKuanFeiYong.daoZhangJinE+"元");
 		((TextView)dialog.findViewById(R.id.jiekuanDaysTv)).setText(jieKuanFeiYong.tianShu+"天");
-		((TextView)dialog.findViewById(R.id.yinhuanEtv)).setText(jieKuanFeiYong.yingHuanJinE+"元");
+		((TextView)dialog.findViewById(R.id.yinhuanEtv)).setText(jieKuanFeiYong.zongZhiFuFeiYong+"元");
 
 		TextView decTv = (TextView) dialog.findViewById(R.id.decTv);
 		decTv.setMovementMethod(LinkMovementMethod.getInstance());//必须设置否则无效

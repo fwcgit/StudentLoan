@@ -11,11 +11,19 @@
         android:id="@+id/titleLayout"
         layout="@layout/title_bar_layout"/>
 
+    <ImageView
+        android:id="@+id/bannerWidget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_below="@id/titleLayout"
+        android:src="@drawable/icon_home_title" />
+
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titleLayout"
+        android:layout_below="@id/bannerWidget"
         android:layout_marginTop="8dp"
         android:background="#ffffff"
         android:orientation="vertical"
@@ -178,15 +186,16 @@
             android:id="@+id/priceEt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#00000000"
             android:layout_weight="1"
+            android:background="#00000000"
+            android:enabled="false"
             android:gravity="right"
+            android:inputType="number"
+            android:text="2900"
             android:textColor="#19b519"
             android:textSize="16dp"
-            android:inputType="number"
-            android:enabled="false"
-            android:text="2900"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -203,8 +212,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layout2"
         android:layout_marginLeft="@dimen/btn_margin"
-        android:layout_marginRight="@dimen/btn_margin"
         android:layout_marginTop="40dp"
+        android:layout_marginRight="@dimen/btn_margin"
         android:background="@drawable/select_button_pic_bg"
         android:text="立即租赁"
         android:textColor="#fff"

@@ -133,7 +133,7 @@ public class RegisterActivity extends BaseActivity {
 		String urlFormat = String.format(ServerInterface.USER_REGISTER,phone,smsCode,pwd,inviteCode);
 
 		if(TextUtils.isEmpty(inviteCode)){
-			urlFormat = String.format("/accounts/app/%s/register?platform=android&checkCode=%s&password=%s",phone,smsCode,pwd,inviteCode);
+			urlFormat = String.format(ServerInterface.USER_REGISTER_NO_INVITEDBY,phone,smsCode,pwd);
 		}
 
 

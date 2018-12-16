@@ -4,6 +4,7 @@ package com.qudaozhang.white.mode.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.Toast;
 
 import com.qudaozhang.white.MyApplication;
 import com.qudaozhang.white.net.data.UserInfo;
@@ -30,6 +31,19 @@ public class BaseFramgent extends Fragment  {
 		titleBar.initView(getView(),false);
 		super.onViewCreated(view, savedInstanceState);
 	}
-	
+
+	public UserInfo getUserInfo(){
+		if(null == app.userInfo){
+			app.reLogin();
+		}else{
+			this.userInfo = app.userInfo;
+		}
+
+		return app.userInfo;
+	}
+
+	public void showToast(String str){
+		Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
+	}
 	
 }

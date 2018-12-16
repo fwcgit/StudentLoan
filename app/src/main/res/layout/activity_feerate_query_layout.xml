@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/comm_margin"
             android:layout_marginTop="16sp"
-            android:text="急借白卡"
+            android:text="趣到账"
             android:textColor="@color/bg"
             android:textSize="16sp"
             />

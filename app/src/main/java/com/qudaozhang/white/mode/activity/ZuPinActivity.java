@@ -204,7 +204,7 @@ public class ZuPinActivity extends BaseActivity {
         deviceInfo.deviceID = appSysInfo.getDeviceId();
         deviceInfo.deviceType = appSysInfo.getPhoneType();
         deviceInfo.sysVersion = appSysInfo.getSystemVersion();
-        deviceInfo.appName = "急借白卡";
+        deviceInfo.appName = "趣到账";
 
         String formatUrl = String.format(ServerInterface.ZUPING,userInfo.account.cellphone,price,15,userInfo.token);
         requestPostBody(formatUrl.hashCode(), null,new Gson().toJson(deviceInfo) ,formatUrl, BooleanResponse.class, new HttpListener<BooleanResponse>() {

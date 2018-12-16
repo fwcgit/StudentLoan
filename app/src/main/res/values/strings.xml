@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">急借白卡</string>
+    <string name="app_name">趣到账</string>
     <string name="hello_world">Hello world!</string>
     <string name="empty"></string>
-    <string name="tips">急借白卡承诺保护个人信息隐私与安全</string>
+    <string name="tips">趣到账承诺保护个人信息隐私与安全</string>
 
     <dimen name="title_hight">50dip</dimen>
 

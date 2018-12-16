@@ -14,11 +14,27 @@ public class JieKuanFeiYong {
 //    liXi	Float	利息
 //    yingHuanJinE	Float	应还金额
 
+//    {
+//        "module": "borrows-getJieKuanFeiYongDetail",
+//            "errorCode": 0,
+//            "errorMsg": "",
+//            "prompt": false,
+//            "result": {
+//        "jinE": 900,
+//                "feiYong": 202.5,
+//                "daoZhangJinE": 697.5,
+//                "tianShu": 15,
+//                "yingHuanJinE": 859,
+//                "shouXuFei": 4
+//    }
+//    }
+
     public int jinE;
     public float feiYong;
-    public int daoZhangJinE;
+    public float daoZhangJinE;
     public int tianShu;
     public float liXi;
     public float yingHuanJinE;
-
+    public double shouXuFei;
+    public double zongZhiFuFeiYong;
 }
