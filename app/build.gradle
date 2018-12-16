@@ -27,8 +27,8 @@ android {
         applicationId "com.studentloan.white"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 9
-        versionName "3.0.2"
+        versionCode 10
+        versionName "3.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         
         manifestPlaceholders = [

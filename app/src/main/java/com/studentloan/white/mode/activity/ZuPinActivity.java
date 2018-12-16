@@ -21,6 +21,7 @@ import com.studentloan.white.net.data.BorrowLimitsResponse;
 import com.studentloan.white.net.data.DeviceInfo;
 import com.studentloan.white.net.data.GetBankCardResponse;
 import com.studentloan.white.net.data.JieKuanFeiYong;
+import com.studentloan.white.net.data.JieKuanFeiYongResponse;
 import com.studentloan.white.net.data.StringResponse;
 import com.studentloan.white.utils.DialogUtils;
 import com.studentloan.white.utils.SystemOpt;
@@ -186,30 +187,8 @@ public class ZuPinActivity extends BaseActivity {
 						}
 
                         if(userInfo.submit == 1 && userInfo.verificationResult == 1) {
-                            JieKuanFeiYong feiYong = new JieKuanFeiYong();
-                            feiYong.jinE = Integer.valueOf(price);
-                            feiYong.feiYong = feiYong.jinE * 0.01f * 15f;
-                            feiYong.daoZhangJinE = (int) (feiYong.jinE - feiYong.feiYong);
-                            feiYong.tianShu = 15;
-                            feiYong.yingHuanJinE = feiYong.jinE * 0.95f;
-                            feiYong.shouXuFei = 4d;
-                            feiYong.zongZhiFuFeiYong = feiYong.yingHuanJinE+feiYong.shouXuFei;
-                            DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
-                                @Override
-                                public void confirm() {
-                                    checkPersonalInfo(price);
-                                }
 
-                                @Override
-                                public void xieyi() {
-                                    DialogUtils.getInstance().showSelectHetong(ZuPinActivity.this, new DialogCallback() {
-                                        @Override
-                                        public void hetong(int type) {
-                                            getBankCardList((type+2)+"");
-                                        }
-                                    });
-                                }
-                            });
+						    getBorrowMoneyInfo(price);
 
                         }else{
                             checkPersonalInfo(price);
@@ -270,6 +249,47 @@ public class ZuPinActivity extends BaseActivity {
             }
         },true);
     }
+
+    private void getBorrowMoneyInfo(final String price){
+        String formatUrl = String.format(ServerInterface.BORROW_MONEY_INFO,userInfo.account.cellphone,price,15);
+        requestGet(formatUrl.hashCode(), formatUrl, JieKuanFeiYongResponse.class, new HttpListener<JieKuanFeiYongResponse>() {
+            @Override
+            public void onSucceed(int what, Response<JieKuanFeiYongResponse> response) {
+
+                if(response.isSucceed() && response.get() != null){
+                    if(response.get().result != null){
+
+                        JieKuanFeiYong feiYong = response.get().result;
+                        feiYong.zongZhiFuFeiYong = feiYong.yingHuanJinE;
+                        DialogUtils.getInstance().showLoanConfirm(ZuPinActivity.this, feiYong,new DialogCallback() {
+                            @Override
+                            public void confirm() {
+                                checkPersonalInfo(price);
+                            }
+
+                            @Override
+                            public void xieyi() {
+                                DialogUtils.getInstance().showSelectHetong(ZuPinActivity.this, new DialogCallback() {
+                                    @Override
+                                    public void hetong(int type) {
+                                        getBankCardList((type+2)+"");
+                                    }
+                                });
+                            }
+                        });
+
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onFailed(int what, Response<JieKuanFeiYongResponse> response) {
+
+            }
+        },true);
+    }
     
     public void checkPersonalInfo(final String price){
 
@@ -302,6 +322,7 @@ public class ZuPinActivity extends BaseActivity {
                     }
 
                     requestLoan(price);
+
                 }
                 return false;
             }

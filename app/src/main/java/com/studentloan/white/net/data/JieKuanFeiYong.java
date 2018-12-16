@@ -16,7 +16,7 @@ public class JieKuanFeiYong {
 
     public int jinE;
     public float feiYong;
-    public int daoZhangJinE;
+    public float daoZhangJinE;
     public int tianShu;
     public float liXi;
     public float yingHuanJinE;
